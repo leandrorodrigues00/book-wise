@@ -18,9 +18,9 @@ export function BookCard({ size = "base" }: BookCardProps) {
     },
   };
   return (
-    <div className="flex gap-5 bg-gray-700 py-[1.125rem] px-5 rounded-lg">
+    <div className="flex gap-5 rounded-lg bg-gray-700 px-5 py-[1.125rem]">
       <Image
-        src="/images/books/Book.png"
+        src="/images/books/a-revolucao-dos-bixos.png"
         className="rounded"
         width={IMAGE_SIZES[size].width}
         height={IMAGE_SIZES[size].height}
@@ -30,7 +30,7 @@ export function BookCard({ size = "base" }: BookCardProps) {
       <div className="flex flex-col justify-between">
         <div>
           <h2 className="font-bold leading-short">A revolução dos bichos</h2>
-          <p className="text-sm text-gray-400 leading-base">George Orwell</p>
+          <p className="text-sm leading-base text-gray-400">George Orwell</p>
         </div>
         <RatingStars rating={4} />
       </div>

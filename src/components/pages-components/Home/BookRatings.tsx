@@ -1,48 +1,47 @@
 import { Avatar } from "@/components/shared-components/Avatar";
 import { RatingStars } from "@/components/shared-components/RatingStars";
+import { BookRatings } from "./TrendingBooks";
 
-export function BookRatings() {
-  const text =
-    "Semper et sapien proin vitae nisi. Feugiat neque integer donec et aenean posuere amet ultrices. Cras fermentum id pulvinar varius leo a in. Amet libero pharetra nunc elementum fringilla velit ipsum. Sed vulputate massa velit nibhSemper et sapien proin vitae nisi. Feugiat neque integer donec et aenean posuere amet ultrices. Cras fermentum id pulvinar varius leo a in. Amet libero pharetra nunc elementum fringilla velit ipsum. Sed vulputate massa velit nibhSemper et sapien proin vitae nisi. Feugiat neque integer donec et aenean posuere amet ultrices. Cras fermentum id pulvinar varius leo a in. Amet libero pharetra nunc elementum fringilla velit ipsum. Sed vulputate massa velit nibh";
+import Image from "next/image";
+import { ShowMoreButton } from "./ShowMoreButton";
 
+export function BookRatings({ ratings }: { ratings: BookRatings }) {
   return (
-    <div className="w-full bg-gray-700 p-6 rounded-lg">
+    <div className="w-full rounded-lg bg-gray-700 p-6">
       <header className="flex justify-between">
-        <div className="flex gap-4 items-center">
+        <div className="flex items-center gap-4">
           <Avatar
-            src="https://s3-alpha-sig.figma.com/img/fbe8/a45a/437ecfcf85ca69f69b42294b1948473f?Expires=1684713600&Signature=JPs6IVFOD6mraVGn3fML~xSf2AGwrXkE0C2FF-xhPQjyVhI7muZhnriWPTQQhKUOymCpD5hw0Fl2tPWjGBszHqn9i4lSvMw2Nd8JmXGXRNtNhqf7wg45~Of-5kTk9nrgookyuXmyUroR8SLsHFL77OaleeeAzOqst7RVNFdD-v2y47jvivKJIBVbGM70Mx33UL12~WZaXcBkX6lvnKGzClSFY6DjmkqLprmPGwI4Lrm1tosrHVnEPW-e6YqATeSapFu~4-BQEchVcn9SeFF4-9LBujZtY-8c4iKtpNUfPtKw1Eu8-GAsceh3lqJEdOFhddVaRgGEMJ12S94G~WPwKw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
-            alt=""
+            src={ratings.user.avatar_url}
+            alt={`Profile photo of ${ratings.user.name}`}
           />
 
           <div>
-            <p className="leading-base">Jaxson Dias</p>
+            <p className="leading-base">{ratings.user.name}</p>
             <span className="text-sm text-gray-400">Hoje</span>
           </div>
         </div>
 
-        <RatingStars rating={4} />
+        <RatingStars rating={ratings.rate} />
       </header>
 
-      <div className="flex gap-5 mt-8">
-        <img
-          className="w-[6.75rem] h-[9.5rem] rounded"
-          src="/images/books/o-hobbit.png"
+      <div className="mt-8 flex  gap-5">
+        <Image
+          className="h-full max-h-[152px]"
+          src={ratings.book.cover_url}
+          width={108}
+          height={152}
           alt="Foto da capa do livro 'O Hobbit' de J.R.R TOLKIEN"
         />
 
         <div>
           <div className="mb-5">
-            <h2 className="font-bold leading-short">O Hobbit</h2>
+            <h2 className="font-bold leading-short">{ratings.book.name}</h2>
             <span className="text-sm leading-base text-gray-400">
-              J.R.R Tolkien
+              {ratings.book.author}
             </span>
           </div>
-          <p className="text-sm text-gray-300 leading-base line-clamp-4">
-            {`${text.substring(0, 229)}...`}
-            <button className="text-sm text-purple-100 font-bold leading-base ml-1">
-              ver mais
-            </button>
-          </p>
+
+          <ShowMoreButton text={ratings.description} />
         </div>
       </div>
     </div>

@@ -1,40 +1,39 @@
-import Image, { ImageProps } from "next/image";
+import Image from "next/image";
 
 interface AvatarProps {
   src: string;
   alt: string;
   size?: "sm" | "md" | "lg";
-  borderWidth?: 1 | 2;
+  borderWidth?: "sm" | "md";
 }
 
 export function Avatar({
   src,
   alt,
   size = "md",
-  borderWidth = 1,
+  borderWidth = "sm",
 }: AvatarProps) {
   const IMAGE_SIZES = {
-    sm: {
-      width: 32,
-      height: 32,
-    },
-    md: {
-      width: 40,
-      height: 40,
-    },
-    lg: {
-      width: 72,
-      height: 72,
-    },
+    sm: "h-[32px] w-[32px] min-w-[32px]",
+    md: "h-[40px] w-[40px] min-w-[40px]",
+    lg: "h-[72px] w-[72px] min-w-[72px]",
   };
+
+  const BORDER_SIZE = {
+    sm: "p-px",
+    md: "p-[2px] ",
+  };
+
   return (
-    <div className={`p-[${borderWidth}px] bg-gradient-vertical rounded-full`}>
+    <div
+      className={`rounded-full bg-gradient-vertical ${IMAGE_SIZES[size]} ${BORDER_SIZE[borderWidth]}`}
+    >
       <Image
-        className="rounded-full"
-        width={IMAGE_SIZES[size].width}
-        height={IMAGE_SIZES[size].height}
+        className="h-full w-full rounded-full object-cover"
+        width={80}
+        height={80}
         src={src}
-        alt={`foto de perfil de ${alt}`}
+        alt={alt}
       />
     </div>
   );

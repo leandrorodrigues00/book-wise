@@ -4,9 +4,9 @@ import Image from "next/image";
 export function MyBookRatings() {
   return (
     <div className="mb-6">
-      <span className="text-gray-300 text-sm leading-base">Há 2 dias</span>
+      <span className="text-sm leading-base text-gray-300">Há 2 dias</span>
 
-      <div className="bg-gray-700 rounded-lg p-6 mt-2">
+      <div className="mt-2 rounded-lg bg-gray-700 p-6">
         <header className="flex gap-5    ">
           <Image
             src="/images/books/entendendo-algoritmos.png"
@@ -18,14 +18,14 @@ export function MyBookRatings() {
           <div className="flex flex-col justify-between">
             <div>
               <h2 className="font-bold leading-short">Entendendo Algoritmos</h2>
-              <p className="text-sm text-gray-400 leading-base">
+              <p className="text-sm leading-base text-gray-400">
                 Aditya Bhargava
               </p>
             </div>
             <RatingStars rating={4} />
           </div>
         </header>
-        <p className="text-gray-300 text-sm leading-base mt-6">
+        <p className="mt-6 text-sm leading-base text-gray-300">
           Tristique massa sed enim lacinia odio. Congue ut faucibus nunc vitae
           non. Nam feugiat vel morbi viverra vitae mi. Vitae fringilla ut et
           suspendisse enim suspendisse vitae. Leo non eget lacus sollicitudin
