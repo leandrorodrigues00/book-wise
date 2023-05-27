@@ -1,11 +1,12 @@
+import Image from "next/image";
+
 import { Avatar } from "@/components/shared-components/Avatar";
 import { RatingStars } from "@/components/shared-components/RatingStars";
-import { BookRatings } from "./TrendingBooks";
-
-import Image from "next/image";
 import { ShowMoreButton } from "./ShowMoreButton";
 
-export function BookRatings({ ratings }: { ratings: BookRatings }) {
+import { BookRating } from "./TrendingBooks";
+
+export function BookRatings({ ratings }: { ratings: BookRating }) {
   return (
     <div className="w-full rounded-lg bg-gray-700 p-6">
       <header className="flex justify-between">

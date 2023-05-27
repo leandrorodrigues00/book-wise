@@ -8,7 +8,7 @@ interface User {
   created_at: string;
 }
 
-interface Book {
+export interface Book {
   id: string;
   name: string;
   author: string;
@@ -18,7 +18,7 @@ interface Book {
   created_at: string;
 }
 
-export interface BookRatings {
+export interface BookRating {
   id: string;
   rate: number;
   description: string;
@@ -29,15 +29,17 @@ export interface BookRatings {
   user: User;
 }
 
-async function fetchData() {
+async function fetchLatestRatings() {
   const url = "http://localhost:3000/api/ratings/latest";
   try {
     const response = await fetch(url, {
-      cache: "no-cache",
+      next: {
+        revalidate: 60 * 60 * 24, // 24 hours
+      },
     });
 
     if (response.ok) {
-      const json: BookRatings[] = await response.json();
+      const json: BookRating[] = await response.json();
       return json;
     } else {
       throw new Error(
@@ -54,7 +56,7 @@ async function fetchData() {
 }
 
 export async function TrendingBooks() {
-  const latestRatings = await fetchData();
+  const latestRatings = await fetchLatestRatings();
 
   return (
     <div className="no-scrollbar h-full w-full max-w-[608px] overflow-y-auto pb-10">

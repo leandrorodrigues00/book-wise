@@ -6,6 +6,8 @@ export default function Home() {
     <section className="mx-auto mt-[42px] flex w-full max-w-[996px] gap-16">
       {/* @ts-expect-error Server Component */}
       <TrendingBooks />
+
+      {/* @ts-expect-error Server Component */}
       <PopularBooks />
     </section>
   );
