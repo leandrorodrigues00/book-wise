@@ -1,9 +1,8 @@
 import { prisma } from "@/lib/prisma";
-import { NextResponse } from "next/server";
+import { NextResponse, NextRequest } from "next/server";
 
-export async function GET(request: Request) {
-  const { searchParams } = new URL(request.url);
-  const categoryId = searchParams.get("categoryId");
+export async function GET(request: NextRequest) {
+  const categoryId = request.nextUrl.searchParams.get("categoryId");
 
   let books;
 

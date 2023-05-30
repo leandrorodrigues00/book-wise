@@ -1,10 +1,5 @@
-import {
-  BookSearchInput,
-  BookTags,
-  BooksGrid,
-} from "@/components/pages-components/explore";
+import { BookGridSearches } from "@/components/pages-components/explore/BookGridSearches";
 import { PopularBooks } from "@/components/shared-components/BookCard";
-import { Binoculars } from "@/components/shared-components/icons";
 
 export interface Categories {
   id: string;
@@ -18,13 +13,13 @@ export interface BookWithCategory extends PopularBooks {
   }[];
 }
 
-async function fetchBooks() {
-  const url = `http://localhost:3000/api/books`;
+async function fetchBooks(search: string) {
+  const url = `http://localhost:3000/api/books?categoryId=${search}`;
 
   try {
     const response = await fetch(url, {
       next: {
-        revalidate: 60 * 30, // 30 minutes
+        revalidate: 60 * 30,
       },
     });
 
@@ -69,61 +64,21 @@ async function fetchCategories() {
   }
 }
 
-export default async function Explore({
-  searchParams,
-}: {
-  searchParams: { [key: string]: string | string[] | undefined };
-}) {
-  const bookList = await fetchBooks();
+async function getBooksByCategory(search: string) {
+  "use server";
+  const bookList = await fetchBooks(search);
+  return bookList;
+}
+
+export default async function Explore() {
   const bookCategories = await fetchCategories();
-
-  function searchBooksByCategory() {
-    const categoryId = searchParams.category;
-
-    if (categoryId) {
-      const filteredBooks = bookList.filter((book) =>
-        book.categories.some((category) => category.categoryId === categoryId)
-      );
-
-      return filteredBooks;
-    } else {
-      return bookList;
-    }
-  }
-
-  function searchBooksByNameOrAuthor() {
-    const name = searchParams.search;
-
-    if (name && typeof name === "string") {
-      const filteredBooks = bookList.filter(
-        (book) =>
-          book.name.toLowerCase().includes(name.toLowerCase()) ||
-          book.author.toLowerCase().includes(name.toLowerCase())
-      );
-      return filteredBooks;
-    } else {
-      return bookList;
-    }
-  }
-
-  const book = searchBooksByCategory();
 
   return (
     <section className="mx-auto mt-[42px] w-full max-w-[996px] overflow-hidden">
-      <div className="mb-12 flex w-full flex-col">
-        <header className="mb-10 flex items-center justify-between">
-          <p className="flex gap-3 text-2xl font-bold leading-short">
-            <Binoculars className="h-[32px] w-[32px] fill-current text-green-100  " />
-            Explorar
-          </p>
-
-          <BookSearchInput />
-        </header>
-
-        <BookTags bookCategories={bookCategories} />
-      </div>
-
-      <BooksGrid bookList={book} />
+      <BookGridSearches
+        bookCategories={bookCategories}
+        getBooksByCategory={getBooksByCategory}
+      />
     </section>
   );
 }
