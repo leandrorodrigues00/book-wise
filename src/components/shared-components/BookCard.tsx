@@ -24,16 +24,16 @@ export function BookCard({ size = "base", book }: BookCardProps) {
     },
   };
   return (
-    <div className="flex gap-5 rounded-lg bg-gray-700 px-5 py-[1.125rem]">
+    <div className="flex w-full gap-5 rounded-lg bg-gray-700 px-5 py-[1.125rem]">
       <Image
         src={book.cover_url}
         className="rounded object-cover"
         width={IMAGE_SIZES[size].width}
         height={IMAGE_SIZES[size].height}
-        alt="Capa do livro revolução"
+        alt={`Capa do livro ${book.name}`}
       />
 
-      <div className="flex flex-col justify-between">
+      <div className="flex flex-col justify-between text-left">
         <div>
           <h2 className="line-clamp-2 font-bold leading-short">{book.name}</h2>
           <p className="text-sm leading-base text-gray-400">{book.author}</p>

@@ -34,7 +34,7 @@ async function fetchLatestRatings() {
   try {
     const response = await fetch(url, {
       next: {
-        revalidate: 60 * 60 * 24, // 24 hours
+        revalidate: 60 * 10, // 10 minutes
       },
     });
 
@@ -51,12 +51,14 @@ async function fetchLatestRatings() {
       console.error(
         `Error fetching data from URL ${url}. Message: ${error.message}`
       );
-    return [];
+    return null;
   }
 }
 
 export async function TrendingBooks() {
   const latestRatings = await fetchLatestRatings();
+  if (!latestRatings)
+    throw new Error("The latest classifications could not be loaded");
 
   return (
     <div className="no-scrollbar h-full w-full max-w-[608px] overflow-y-auto pb-10">

@@ -1,9 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
+
 import { BookWithCategory, Categories } from "@/app/(mainContent)/explore/page";
 import { BookCard } from "@/components/shared-components/BookCard";
 import { Form } from "@/components/shared-components/Form";
+
 import {
   Binoculars,
   MagnifyingGlass,
@@ -18,6 +21,7 @@ export function BookGridSearches({
   bookCategories,
   getBooksByCategory,
 }: BookGridSearchesProps) {
+  const [isLoading, setIsLoading] = useState(true);
   const [bookList, setBookList] = useState<BookWithCategory[]>([]);
   const [searchString, setSearchString] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<string | undefined>(
@@ -26,7 +30,11 @@ export function BookGridSearches({
 
   //Fills the books when the component is first mounted
   useEffect(() => {
-    getBooksByCategory("").then((books) => setBookList(books));
+    setIsLoading(true);
+    getBooksByCategory("").then((books) => {
+      setBookList(books);
+      setIsLoading(false);
+    });
   }, [getBooksByCategory]);
 
   const filteredBooks = bookList.filter((book) => {
@@ -93,13 +101,17 @@ export function BookGridSearches({
       </div>
 
       {/* Books Grid  */}
-      <div className="no-scrollbar grid max-h-[690px] grid-cols-3 gap-5 overflow-y-auto pb-10">
-        {filteredBooks.length > 0 ? (
-          filteredBooks.map((book, index) => (
-            <BookCard key={index} book={book} size="lg" />
-          ))
-        ) : (
+      <div className="no-scrollbar grid max-h-[690px]  grid-cols-3 gap-5 overflow-y-auto pb-10">
+        {isLoading ? (
+          <p className="text-purple-400">Carregando livros...</p>
+        ) : filteredBooks.length === 0 ? (
           <p className="text-purple-400">Nenhum livro encontrado.</p>
+        ) : (
+          filteredBooks.map((book, index) => (
+            <Link key={index} href={`explore/book/${book.id}`}>
+              <BookCard key={index} book={book} size="lg" />
+            </Link>
+          ))
         )}
       </div>
     </>

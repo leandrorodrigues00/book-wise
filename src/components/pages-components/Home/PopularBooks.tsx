@@ -6,11 +6,13 @@ import {
 } from "@/components/shared-components/BookCard";
 import { ChevronRight } from "@/components/shared-components/icons";
 
-async function fetchData() {
+async function fetchPopularBooks() {
   const url = "http://localhost:3000/api/books/popular";
   try {
     const response = await fetch(url, {
-      cache: "no-cache",
+      next: {
+        revalidate: 60 * 60 * 24, // 24 hours
+      },
     });
 
     if (response.ok) {
@@ -26,12 +28,14 @@ async function fetchData() {
       console.error(
         `Error fetching data from URL ${url}. Message: ${error.message}`
       );
-    return [];
+    return null;
   }
 }
 
 export async function PopularBooks() {
-  const popularBooksList = await fetchData();
+  const popularBooksList = await fetchPopularBooks();
+  if (!popularBooksList)
+    throw new Error("The popular book list could not be loaded");
 
   return (
     <div className="mt-[4.75rem] w-full max-w-[20.25rem]">

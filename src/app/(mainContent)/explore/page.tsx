@@ -19,7 +19,7 @@ async function fetchBooks(search: string) {
   try {
     const response = await fetch(url, {
       next: {
-        revalidate: 60 * 30,
+        revalidate: 60 * 30, // 30 minutes
       },
     });
 
@@ -36,7 +36,7 @@ async function fetchBooks(search: string) {
       console.error(
         `Error fetching data from URL ${url}. Message: ${error.message}`
       );
-    return [];
+    return null;
   }
 }
 
@@ -44,7 +44,9 @@ async function fetchCategories() {
   const url = "http://localhost:3000/api/books/categories";
   try {
     const response = await fetch(url, {
-      next: { revalidate: 60 * 60 * 24 },
+      next: {
+        revalidate: 60 * 60 * 24, // 24 hours
+      },
     });
 
     if (response.ok) {
@@ -60,18 +62,22 @@ async function fetchCategories() {
       console.error(
         `Error fetching data from URL ${url}. Message: ${error.message}`
       );
-    return [];
+    return null;
   }
 }
 
 async function getBooksByCategory(search: string) {
   "use server";
   const bookList = await fetchBooks(search);
+  if (!bookList) throw new Error("Books could not be loaded");
+
   return bookList;
 }
 
 export default async function Explore() {
   const bookCategories = await fetchCategories();
+  if (!bookCategories)
+    throw new Error("The book categories could not be loaded");
 
   return (
     <section className="mx-auto mt-[42px] w-full max-w-[996px] overflow-hidden">

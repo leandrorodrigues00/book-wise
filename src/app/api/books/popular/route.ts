@@ -8,9 +8,11 @@ export async function GET() {
         _count: "desc",
       },
     },
+
     include: {
       ratings: true,
     },
+
     take: 4,
   });
 
@@ -21,6 +23,7 @@ export async function GET() {
         in: books.map((book) => book.id),
       },
     },
+
     _avg: {
       rate: true,
     },

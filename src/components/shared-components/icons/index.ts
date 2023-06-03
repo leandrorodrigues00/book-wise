@@ -12,3 +12,4 @@ export { default as Book } from "./book";
 export { default as Books } from "./books";
 export { default as UserList } from "./user-list";
 export { default as BookmarkSimple } from "./bookmark-simple";
+export { default as CloseIcon } from "./close-icon";
