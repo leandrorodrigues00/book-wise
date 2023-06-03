@@ -10,7 +10,7 @@ export function Input({ icon, className, name, ...props }: InputProps) {
     <div className={className}>
       <input
         id={name}
-        className="flex-1 border-none bg-transparent outline-none  "
+        className="flex-1 border-none bg-transparent outline-none"
         {...props}
       />
       <label htmlFor={name}>{icon}</label>

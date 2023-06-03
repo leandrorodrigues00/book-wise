@@ -54,7 +54,7 @@ export function BookGridSearches({
       <div className="mb-12 flex w-full flex-col">
         <header className="mb-10 flex items-center justify-between">
           <p className="flex gap-3 text-2xl font-bold leading-short">
-            <Binoculars className="h-[32px] w-[32px] fill-current text-green-100  " />
+            <Binoculars className="h-[32px] w-[32px] fill-current text-green-100" />
             Explorar
           </p>
 
