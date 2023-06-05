@@ -7,7 +7,7 @@ interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
 
 export function Textarea({ className, maxLength, ...props }: TextareaProps) {
   const valueLength = String(props.value)?.length ?? 0;
-  console.log(valueLength);
+
   return (
     <div className={`${className} flex w-full flex-col transition-all`}>
       <textarea

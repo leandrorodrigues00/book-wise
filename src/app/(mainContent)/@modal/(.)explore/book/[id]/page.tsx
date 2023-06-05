@@ -1,13 +1,14 @@
-import { RatingsDialog } from "@/components/pages-components/explore/RatingsDialog";
+import { RatingsDialog } from "@/components/pages-components/explore/@modal/RatingsDialog";
 import { BookWithCategory } from "@/app/(mainContent)/explore/page";
-import { BookDetailsCard } from "@/components/pages-components/explore/BookDetailsCard";
+import { BookDetailsCard } from "@/components/pages-components/explore/@modal/BookDetailsCard";
 import {
   RatingWithAuthor,
   UserRatingCard,
-} from "@/components/pages-components/explore/UserRatingCard";
+} from "@/components/pages-components/explore/@modal/UserRatingCard";
 
 import { CategoriesOnBooks, Category } from "@prisma/client";
-import { RatingForm } from "@/components/pages-components/explore/RatingForm";
+import { RatingForm } from "@/components/pages-components/explore/@modal/RatingForm";
+import { BookRatingsCard } from "@/components/pages-components/explore/@modal/BookRatingsCard";
 
 interface BookModalProps {
   params: {
@@ -59,22 +60,7 @@ export default async function BookModal({ params }: BookModalProps) {
       {/* Info Book */}
       <BookDetailsCard selectedBook={selectedBook} />
 
-      <div>
-        <header className="mb-4 flex justify-between">
-          <span className="text-sm leading-base">Avaliações</span>
-          <button className="font-bold leading-base text-purple-100">
-            Avaliar
-          </button>
-        </header>
-
-        {/* Books Ratings */}
-        <div className="flex flex-col space-y-3 pb-10">
-          <RatingForm />
-          {/* {selectedBook.ratings.map((rating) => (
-            <UserRatingCard rating={rating} key={rating.id} />
-          ))} */}
-        </div>
-      </div>
+      <BookRatingsCard bookRatings={selectedBook.ratings} />
     </RatingsDialog>
   );
 }

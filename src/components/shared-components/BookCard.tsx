@@ -24,7 +24,7 @@ export function BookCard({ size = "base", book }: BookCardProps) {
     },
   };
   return (
-    <div className="flex w-full gap-5 rounded-lg bg-gray-700 px-5 py-[1.125rem]">
+    <div className="flex w-full gap-5 rounded-lg bg-gray-700 px-5 py-[1.125rem] hover:cursor-pointer">
       <Image
         src={book.cover_url}
         className="rounded object-cover"
