@@ -16,7 +16,7 @@ interface ProfilePageProps {
   };
 }
 
-export default function ProfilePage({ params }: ProfilePageProps) {
+export default async function ProfilePage({ params }: ProfilePageProps) {
   return (
     <section className="mx-auto mt-[42px] flex w-full max-w-[996px] gap-16 overflow-hidden">
       <div className="no-scrollbar max-h-[calc(100vh-42px)] w-full max-w-[608px]  overflow-y-auto">

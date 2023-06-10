@@ -84,9 +84,9 @@ export function BookGridSearches({
           >
             Tudo
           </button>
-          {bookCategories.map((category, index) => (
+          {bookCategories.map((category) => (
             <button
-              key={index}
+              key={category.id}
               onClick={() => handleChangeCategory(category.id)}
               className={`rounded-full border  px-4 leading-base  transition ${
                 category.id === selectedCategory
@@ -107,9 +107,9 @@ export function BookGridSearches({
         ) : filteredBooks.length === 0 ? (
           <p className="text-purple-400">Nenhum livro encontrado.</p>
         ) : (
-          filteredBooks.map((book, index) => (
-            <Link key={index} href={`explore/book/${book.id}`}>
-              <BookCard key={index} book={book} size="lg" />
+          filteredBooks.map((book) => (
+            <Link key={book.id} href={`explore/book/${book.id}`}>
+              <BookCard book={book} size="lg" />
             </Link>
           ))
         )}

@@ -1,23 +1,71 @@
+// Learn more about it in the docs:
+// https://authjs.dev/reference/adapter/prisma
+//  https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider          = "postgresql"
+  url               = env("DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL") // Only needed when using a cloud provider that doesn't support the creation of new databases, like Heroku. Learn more: https://pris.ly/d/migrate-shadow
+}
+
 generator client {
   provider = "prisma-client-js"
 }
 
-datasource db {
-  provider = "sqlite"
-  url      = env("DATABASE_URL")
-}
-
 model User {
-  id         String   @id @default(uuid())
-  name       String
-  avatar_url String?
-  created_at DateTime @default(now())
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime?
+  image         String?
+  created_at    DateTime  @default(now())
 
   accounts Account[]
   sessions Session[]
   ratings  Rating[]
 
-  @@map("users")
+  @@map(name: "users")
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@index([userId])
+  @@map("accounts")
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("sessions")
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+  @@map(name: "verification_tokens")
 }
 
 model Book {
@@ -52,6 +100,8 @@ model CategoriesOnBooks {
   category Category @relation(fields: [categoryId], references: [id])
 
   @@id([book_id, categoryId])
+  @@index([book_id])
+  @@index([categoryId])
 }
 
 model Rating {
@@ -63,37 +113,10 @@ model Rating {
   book    Book   @relation(fields: [book_id], references: [id])
   book_id String
 
-  user    User   @relation(fields: [user_id], references: [id])
-  user_id String
+  user   User   @relation(fields: [userId], references: [id])
+  userId String
 
+  @@index([book_id])
+  @@index([userId])
   @@map("ratings")
-}
-
-model Account {
-  id                  String  @id @default(cuid())
-  user_id             String
-  type                String
-  provider            String
-  provider_account_id String
-  refresh_token       String?
-  access_token        String?
-  expires_at          Int?
-  token_type          String?
-  scope               String?
-  id_token            String?
-  session_state       String?
-  user                User    @relation(fields: [user_id], references: [id], onDelete: Cascade)
-
-  @@unique([provider, provider_account_id])
-  @@map("accounts")
-}
-
-model Session {
-  id            String   @id @default(cuid())
-  session_token String
-  user_id       String
-  expires       DateTime
-  user          User     @relation(fields: [user_id], references: [id], onDelete: Cascade)
-
-  @@map("sessions")
 }

@@ -5,6 +5,7 @@ export { default as Github } from "./github";
 export { default as Google } from "./google";
 export { default as RocketLauch } from "./rocket-lauch";
 export { default as SignIn } from "./sign-in";
+export { default as SignOut } from "./sign-out";
 export { default as Star } from "./star";
 export { default as ChevronRight } from "./chevron-right";
 export { default as MagnifyingGlass } from "./magnifying-glass";

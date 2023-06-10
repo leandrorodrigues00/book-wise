@@ -57,7 +57,6 @@ export default async function BookModal({ params }: BookModalProps) {
 
   return (
     <RatingsDialog>
-      {/* Info Book */}
       <BookDetailsCard selectedBook={selectedBook} />
 
       <BookRatingsCard bookRatings={selectedBook.ratings} />

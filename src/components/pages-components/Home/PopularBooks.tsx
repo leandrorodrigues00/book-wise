@@ -39,10 +39,10 @@ export async function PopularBooks() {
 
   return (
     <div className="mt-[4.75rem] w-full max-w-[20.25rem]">
-      <header className="flex justify-between">
+      <header className="flex items-center justify-between">
         <p className="text-sm leading-base">Livros populares</p>
         <Link
-          className="flex items-center gap-2 text-sm font-bold leading-base text-purple-100"
+          className="flex items-center gap-2 rounded px-2 py-1 text-sm font-bold leading-base text-purple-100 hover:bg-[#151822] hover:transition-colors"
           href="/"
         >
           Ver todos
@@ -50,7 +50,7 @@ export async function PopularBooks() {
         </Link>
       </header>
 
-      <div className="mt-4 flex flex-col gap-3">
+      <div className="mt-2 flex flex-col gap-3">
         {popularBooksList.map((book, index) => (
           <BookCard size="base" book={book} key={index} />
         ))}

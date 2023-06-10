@@ -1,8 +1,11 @@
+import { Dispatch, SetStateAction, useState } from "react";
+import { useSession } from "next-auth/react";
+
 import { Avatar } from "@/components/shared-components/Avatar";
 import { Form } from "@/components/shared-components/Form";
 import { RatingStars } from "@/components/shared-components/RatingStars";
+
 import { Check, CloseIcon } from "@/components/shared-components/icons";
-import { Dispatch, SetStateAction, useState } from "react";
 
 interface RatingForm {
   setIsOpen: Dispatch<SetStateAction<boolean>>;
@@ -11,17 +14,26 @@ interface RatingForm {
 export function RatingForm({ setIsOpen }: RatingForm) {
   const [currentRate, setCurrentRate] = useState(0);
   const [description, setDescription] = useState("");
+  const { data: session, status } = useSession();
+
+  if (status === "unauthenticated" || session === null) {
+    return (
+      <div>
+        <p>unauthenticated</p>
+      </div>
+    );
+  }
 
   return (
     <div className="w-full rounded-lg bg-gray-700 p-6">
       <header className="mb-6 flex items-center justify-between">
         <div className="flex items-center space-x-4">
           <Avatar
-            src="https://s3-alpha-sig.figma.com/img/7481/84a6/ca5e70b2945cbb4532d7b4e20d745736?Expires=1686528000&Signature=iqOGlzXX53ns0o8Wz-HAvmXzuSuIx95sWUsx~AsLguysR~sNdKmZclQ-gPXtL-zgo9YV2d~TjgZXn4TkzdCyTjRKdPnmMVvKy4TbY2AdJxO9zUFXv3OK63o2TM5aM~aVB~Jg4CoEGFkdyGPrEmL07ji2s5y7J1DM16Wpn2ef92fBlzx8UyMTbXCdMGyMyFCanXQ87gdRV3b5dnDh2aDBmv8XMnaR35eKQb5Ds0tfXjTuiI52XU9TRtYBFrXPTe6MrEEDt1N3ds--8psGqfWXQyZOCvcXXV3ssE4c8s91TeTQMkml7a~vK3QssfQrhYzV5s9Jsy4xVlEhVcjC25AERQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
-            alt="TROCAR DEPOIS KOKKA"
+            src={session.user?.image || ""}
+            alt={`Profile photo of ${session.user?.name}`}
           />
 
-          <span className="font-bold leading-base">Cristofer Rosser</span>
+          <span className="font-bold leading-base">{session.user?.name}</span>
         </div>
 
         <RatingStars

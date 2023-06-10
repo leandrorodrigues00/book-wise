@@ -3,6 +3,7 @@ import "../globals.css";
 
 import { Sidebar } from "@/components/shared-components/Sidebar";
 import { ReactNode } from "react";
+import { NextAuthProvider } from "@/components/shared-components/NextAuthProvider";
 
 const nunito = Nunito({ subsets: ["latin"] });
 
@@ -20,13 +21,15 @@ export default function RootLayout({ children, modal }: RootLayoutProps) {
   return (
     <html lang="pt-br">
       <body className={`${nunito.className} bg-gray-800 text-gray-100`}>
-        <main className="flex h-screen px-5 pt-5 ">
-          <Sidebar />
+        <NextAuthProvider>
+          <main className="flex h-screen px-5 pt-5 ">
+            <Sidebar />
 
-          {children}
-        </main>
+            {children}
+          </main>
 
-        {modal}
+          {modal}
+        </NextAuthProvider>
       </body>
     </html>
   );

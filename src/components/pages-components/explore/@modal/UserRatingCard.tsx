@@ -23,7 +23,7 @@ export function UserRatingCard({ rating }: UserRatingCardProps) {
       <header className="mb-5 flex justify-between">
         <div className="flex items-center gap-4">
           <Avatar
-            src={rating.user.avatar_url!}
+            src={rating.user.image!}
             alt={`Profile photo of ${rating.user.name}`}
           />
 

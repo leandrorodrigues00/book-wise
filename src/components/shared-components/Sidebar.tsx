@@ -1,9 +1,15 @@
 import Link from "next/link";
 
 import { ActiveLink } from "./ActiveLink";
-import { Binoculars, Profile, SignIn, TrendingUp } from "./icons";
+import { Avatar } from "./Avatar";
+import { getCurrentUser } from "@/lib/session";
 
-export function Sidebar() {
+import { Binoculars, Profile, SignIn, TrendingUp } from "./icons";
+import { SignOutButton } from "./SignOutButton";
+
+export async function Sidebar() {
+  const user = await getCurrentUser();
+
   return (
     <aside className="flex h-[calc(100vh-40px)] w-full max-w-[232px] flex-col items-center rounded-xl bg-sidebar">
       <img className="w-32 pt-10" src="/logo.svg" alt="BookWise logo" />
@@ -22,23 +28,37 @@ export function Sidebar() {
               Explorar
             </ActiveLink>
           </li>
-          <li>
-            <ActiveLink href="/profile/teste">
-              <Profile className="h-6 w-6 fill-current" />
-              Perfil
-            </ActiveLink>
-          </li>
+          {user && (
+            <li>
+              <ActiveLink href="/profile/teste">
+                <Profile className="h-6 w-6 fill-current" />
+                Perfil
+              </ActiveLink>
+            </li>
+          )}
         </ul>
       </nav>
 
       <footer className="mb-6 mt-auto">
-        <Link
-          href="/signin"
-          className="flex items-center gap-3 font-bold leading-base text-gray-200"
-        >
-          Fazer login
-          <SignIn className="h-5 w-5 fill-current text-green-100" />
-        </Link>
+        {user ? (
+          <div className="flex items-center space-x-3">
+            <Avatar
+              size="sm"
+              src={user.image || ""}
+              alt={`Profile photo of ${user.name}`}
+            />
+            <p>{user.name?.split(" ")[0]}</p>
+            <SignOutButton />
+          </div>
+        ) : (
+          <Link
+            href="/signin"
+            className="flex items-center gap-3 font-bold leading-base text-gray-200"
+          >
+            Fazer login
+            <SignIn className="h-5 w-5 fill-current text-green-100" />
+          </Link>
+        )}
       </footer>
     </aside>
   );

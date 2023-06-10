@@ -12,7 +12,7 @@ export function BookRatings({ ratings }: { ratings: BookRating }) {
       <header className="flex justify-between">
         <div className="flex items-center gap-4">
           <Avatar
-            src={ratings.user.avatar_url}
+            src={ratings.user.image}
             alt={`Profile photo of ${ratings.user.name}`}
           />
 

@@ -4,7 +4,9 @@ import { BookRatings } from "./BookRatings";
 interface User {
   id: string;
   name: string;
-  avatar_url: string;
+  email: string;
+  emailVerified: string | null;
+  image: string;
   created_at: string;
 }
 
