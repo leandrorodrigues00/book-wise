@@ -1,5 +1,4 @@
 import { Dispatch, SetStateAction, useState } from "react";
-import { useSession } from "next-auth/react";
 
 import { Avatar } from "@/components/shared-components/Avatar";
 import { Form } from "@/components/shared-components/Form";
@@ -7,22 +6,16 @@ import { RatingStars } from "@/components/shared-components/RatingStars";
 
 import { Check, CloseIcon } from "@/components/shared-components/icons";
 
+import { Session } from "next-auth";
+
 interface RatingForm {
   setIsOpen: Dispatch<SetStateAction<boolean>>;
+  session: Session;
 }
 
-export function RatingForm({ setIsOpen }: RatingForm) {
+export function RatingForm({ setIsOpen, session }: RatingForm) {
   const [currentRate, setCurrentRate] = useState(0);
   const [description, setDescription] = useState("");
-  const { data: session, status } = useSession();
-
-  if (status === "unauthenticated" || session === null) {
-    return (
-      <div>
-        <p>unauthenticated</p>
-      </div>
-    );
-  }
 
   return (
     <div className="w-full rounded-lg bg-gray-700 p-6">

@@ -10,7 +10,9 @@ export default withAuth(
     const token = await getToken({ req, raw: true });
 
     const isAuth = !!token;
-    const isAuthPage = req.nextUrl.pathname.startsWith("/signin");
+    const isAuthPage =
+      req.nextUrl.pathname.startsWith("/signin") ||
+      req.nextUrl.pathname.startsWith("/explore/login");
 
     if (isAuthPage) {
       if (isAuth) {
@@ -43,5 +45,5 @@ export default withAuth(
 );
 
 export const config = {
-  matcher: ["/profile/:path*", "/signin"],
+  matcher: ["/profile/:path*", "/signin", "/explore/login"],
 };

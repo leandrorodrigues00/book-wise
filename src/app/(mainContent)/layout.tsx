@@ -14,21 +14,28 @@ export const metadata = {
 
 interface RootLayoutProps {
   children: ReactNode;
-  modal: ReactNode;
+  ratingsModal: ReactNode;
+  loginModal: ReactNode;
 }
 
-export default function RootLayout({ children, modal }: RootLayoutProps) {
+export default function RootLayout({
+  children,
+}: // ratingsModal,
+// loginModal,
+RootLayoutProps) {
   return (
     <html lang="pt-br">
       <body className={`${nunito.className} bg-gray-800 text-gray-100`}>
         <NextAuthProvider>
           <main className="flex h-screen px-5 pt-5 ">
+            {/* @ts-expect-error Server Component */}
             <Sidebar />
 
             {children}
           </main>
-
-          {modal}
+          {/* 
+          {loginModal}
+          {ratingsModal} */}
         </NextAuthProvider>
       </body>
     </html>

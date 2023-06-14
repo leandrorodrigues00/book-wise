@@ -1,14 +1,10 @@
-import { RatingsDialog } from "@/components/pages-components/explore/@modal/RatingsDialog";
+import { RatingsDialog } from "@/components/pages-components/explore/@ratingsModal/RatingsDialog";
 import { BookWithCategory } from "@/app/(mainContent)/explore/page";
-import { BookDetailsCard } from "@/components/pages-components/explore/@modal/BookDetailsCard";
-import {
-  RatingWithAuthor,
-  UserRatingCard,
-} from "@/components/pages-components/explore/@modal/UserRatingCard";
+import { BookDetailsCard } from "@/components/pages-components/explore/@ratingsModal/BookDetailsCard";
+import { RatingWithAuthor } from "@/components/pages-components/explore/@ratingsModal/UserRatingCard";
 
 import { CategoriesOnBooks, Category } from "@prisma/client";
-import { RatingForm } from "@/components/pages-components/explore/@modal/RatingForm";
-import { BookRatingsCard } from "@/components/pages-components/explore/@modal/BookRatingsCard";
+import { BookRatingsCard } from "@/components/pages-components/explore/@ratingsModal/BookRatingsCard";
 
 interface BookModalProps {
   params: {
@@ -25,7 +21,7 @@ export interface BookDetails extends BookWithCategory {
   >;
 }
 
-async function fetchBookDetails(search: string) {
+export async function fetchBookDetails(search: string) {
   const url = `http://localhost:3000/api/books/details/${search}`;
 
   try {
