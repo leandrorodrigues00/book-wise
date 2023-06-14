@@ -1,15 +1,12 @@
 import Image from "next/image";
 
-import { RatingStars } from "./RatingStars";
-import { Book } from "../pages-components/Home/TrendingBooks";
+import { BookWithRatingConfig } from "@/types";
 
-export interface PopularBooks extends Book {
-  avgRating: number;
-}
+import { RatingStars } from "./RatingStars";
 
 interface BookCardProps {
   size?: "base" | "lg";
-  book: PopularBooks;
+  book: BookWithRatingConfig;
 }
 
 export function BookCard({ size = "base", book }: BookCardProps) {

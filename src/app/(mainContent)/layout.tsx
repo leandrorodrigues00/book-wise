@@ -1,9 +1,11 @@
 import { Nunito } from "next/font/google";
+
 import "../globals.css";
 
-import { Sidebar } from "@/components/shared-components/Sidebar";
 import { ReactNode } from "react";
+
 import { NextAuthProvider } from "@/components/shared-components/NextAuthProvider";
+import { Sidebar } from "@/components/shared-components/Sidebar";
 
 const nunito = Nunito({ subsets: ["latin"] });
 
@@ -14,15 +16,9 @@ export const metadata = {
 
 interface RootLayoutProps {
   children: ReactNode;
-  ratingsModal: ReactNode;
-  loginModal: ReactNode;
 }
 
-export default function RootLayout({
-  children,
-}: // ratingsModal,
-// loginModal,
-RootLayoutProps) {
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="pt-br">
       <body className={`${nunito.className} bg-gray-800 text-gray-100`}>
@@ -33,9 +29,6 @@ RootLayoutProps) {
 
             {children}
           </main>
-          {/* 
-          {loginModal}
-          {ratingsModal} */}
         </NextAuthProvider>
       </body>
     </html>

@@ -1,7 +1,7 @@
-"use client"; // Error components must be Client Components
+"use client";
 
-import Link from "next/link";
 import { useEffect } from "react";
+import Link from "next/link";
 
 interface ErrorProps {
   error: Error;

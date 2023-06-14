@@ -1,5 +1,7 @@
 "use client";
+
 import { signIn } from "next-auth/react";
+
 import { Github, Google } from "@/components/shared-components/icons";
 
 export function AuthButtons() {

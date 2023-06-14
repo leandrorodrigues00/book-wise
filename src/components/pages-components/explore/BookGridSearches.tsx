@@ -3,18 +3,17 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
-import { BookWithCategory, Categories } from "@/app/(mainContent)/explore/page";
+import { BookWithCategoryConfig, CategoryConfig } from "@/types";
 import { BookCard } from "@/components/shared-components/BookCard";
 import { Form } from "@/components/shared-components/Form";
-
 import {
   Binoculars,
   MagnifyingGlass,
 } from "@/components/shared-components/icons";
 
 interface BookGridSearchesProps {
-  bookCategories: Categories[];
-  getBooksByCategory: (search: string) => Promise<BookWithCategory[]>;
+  bookCategories: CategoryConfig[];
+  getBooksByCategory: (search: string) => Promise<BookWithCategoryConfig[]>;
 }
 
 export function BookGridSearches({
@@ -22,7 +21,7 @@ export function BookGridSearches({
   getBooksByCategory,
 }: BookGridSearchesProps) {
   const [isLoading, setIsLoading] = useState(true);
-  const [bookList, setBookList] = useState<BookWithCategory[]>([]);
+  const [bookList, setBookList] = useState<BookWithCategoryConfig[]>([]);
   const [searchString, setSearchString] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<string | undefined>(
     ""

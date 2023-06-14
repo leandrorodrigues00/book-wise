@@ -1,19 +1,17 @@
 import { Dispatch, SetStateAction, useState } from "react";
+import { Session } from "next-auth";
 
 import { Avatar } from "@/components/shared-components/Avatar";
 import { Form } from "@/components/shared-components/Form";
+import { Check, CloseIcon } from "@/components/shared-components/icons";
 import { RatingStars } from "@/components/shared-components/RatingStars";
 
-import { Check, CloseIcon } from "@/components/shared-components/icons";
-
-import { Session } from "next-auth";
-
-interface RatingForm {
+interface RatingFormProps {
   setIsOpen: Dispatch<SetStateAction<boolean>>;
   session: Session;
 }
 
-export function RatingForm({ setIsOpen, session }: RatingForm) {
+export function RatingForm({ setIsOpen, session }: RatingFormProps) {
   const [currentRate, setCurrentRate] = useState(0);
   const [description, setDescription] = useState("");
 

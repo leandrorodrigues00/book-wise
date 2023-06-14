@@ -1,9 +1,9 @@
 import Link from "next/link";
 
-import { ActiveLink } from "./ActiveLink";
-import { Avatar } from "./Avatar";
 import { getCurrentUser } from "@/lib/session";
 
+import { ActiveLink } from "./ActiveLink";
+import { Avatar } from "./Avatar";
 import { Binoculars, Profile, SignIn, TrendingUp } from "./icons";
 import { SignOutButton } from "./SignOutButton";
 

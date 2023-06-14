@@ -1,10 +1,11 @@
-import { BookDetails } from "@/app/(mainContent)/explore/@ratingsModal/(...)explore/book/[id]/page";
-import { RatingStars } from "@/components/shared-components/RatingStars";
-import { Book, BookmarkSimple } from "@/components/shared-components/icons";
 import Image from "next/image";
 
+import { Book, BookmarkSimple } from "@/components/shared-components/icons";
+import { RatingStars } from "@/components/shared-components/RatingStars";
+import { BookDetailsConfig } from "@/types";
+
 interface BookDetailsCardProps {
-  selectedBook: BookDetails;
+  selectedBook: BookDetailsConfig;
 }
 
 export function BookDetailsCard({ selectedBook }: BookDetailsCardProps) {

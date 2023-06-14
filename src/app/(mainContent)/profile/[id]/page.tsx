@@ -2,12 +2,12 @@ import { MyBookRatings } from "@/components/pages-components/Profile/MyBookRatin
 import { Avatar } from "@/components/shared-components/Avatar";
 import { Form } from "@/components/shared-components/Form";
 import {
+  Book,
+  BookmarkSimple,
+  Books,
   MagnifyingGlass,
   Profile,
-  Book,
-  Books,
   UserList,
-  BookmarkSimple,
 } from "@/components/shared-components/icons";
 
 interface ProfilePageProps {

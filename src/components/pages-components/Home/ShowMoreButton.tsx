@@ -1,7 +1,12 @@
 "use client";
+
 import { useState } from "react";
 
-export function ShowMoreButton({ text }: { text: string }) {
+interface ShowMoreButtonProps {
+  text: string;
+}
+
+export function ShowMoreButton({ text }: ShowMoreButtonProps) {
   const [showMore, setShowMore] = useState(false);
 
   if (text.length <= 150) {

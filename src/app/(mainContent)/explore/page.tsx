@@ -1,17 +1,5 @@
+import { BookWithCategoryConfig, CategoryConfig } from "@/types";
 import { BookGridSearches } from "@/components/pages-components/explore/BookGridSearches";
-import { PopularBooks } from "@/components/shared-components/BookCard";
-
-export interface Categories {
-  id: string;
-  name: string;
-}
-
-export interface BookWithCategory extends PopularBooks {
-  categories: {
-    book_id: string;
-    categoryId: string;
-  }[];
-}
 
 async function fetchBooks(search: string) {
   const url = `http://localhost:3000/api/books?categoryId=${search}`;
@@ -24,7 +12,7 @@ async function fetchBooks(search: string) {
     });
 
     if (response.ok) {
-      const json: BookWithCategory[] = await response.json();
+      const json: BookWithCategoryConfig[] = await response.json();
       return json;
     } else {
       throw new Error(
@@ -50,7 +38,7 @@ async function fetchCategories() {
     });
 
     if (response.ok) {
-      const json: Categories[] = await response.json();
+      const json: CategoryConfig[] = await response.json();
       return json;
     } else {
       throw new Error(

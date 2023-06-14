@@ -1,35 +1,7 @@
+import { RatingConfig } from "@/types";
 import { TrendingUp } from "@/components/shared-components/icons";
+
 import { BookRatings } from "./BookRatings";
-
-interface User {
-  id: string;
-  name: string;
-  email: string;
-  emailVerified: string | null;
-  image: string;
-  created_at: string;
-}
-
-export interface Book {
-  id: string;
-  name: string;
-  author: string;
-  summary: string;
-  cover_url: string;
-  total_pages: number;
-  created_at: string;
-}
-
-export interface BookRating {
-  id: string;
-  rate: number;
-  description: string;
-  created_at: string;
-  book_id: string;
-  user_id: string;
-  book: Book;
-  user: User;
-}
 
 async function fetchLatestRatings() {
   const url = "http://localhost:3000/api/ratings/latest";
@@ -41,7 +13,7 @@ async function fetchLatestRatings() {
     });
 
     if (response.ok) {
-      const json: BookRating[] = await response.json();
+      const json: RatingConfig[] = await response.json();
       return json;
     } else {
       throw new Error(

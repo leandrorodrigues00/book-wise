@@ -1,24 +1,12 @@
-import { RatingsDialog } from "@/components/pages-components/explore/@ratingsModal/RatingsDialog";
-import { BookWithCategory } from "@/app/(mainContent)/explore/page";
+import { BookDetailsConfig } from "@/types";
 import { BookDetailsCard } from "@/components/pages-components/explore/@ratingsModal/BookDetailsCard";
-import { RatingWithAuthor } from "@/components/pages-components/explore/@ratingsModal/UserRatingCard";
-
-import { CategoriesOnBooks, Category } from "@prisma/client";
 import { BookRatingsCard } from "@/components/pages-components/explore/@ratingsModal/BookRatingsCard";
+import { RatingsDialog } from "@/components/pages-components/explore/@ratingsModal/RatingsDialog";
 
 interface BookModalProps {
   params: {
     id: string;
   };
-}
-
-export interface BookDetails extends BookWithCategory {
-  ratings: Array<RatingWithAuthor>;
-  categories: Array<
-    CategoriesOnBooks & {
-      category: Category;
-    }
-  >;
 }
 
 export async function fetchBookDetails(search: string) {
@@ -30,7 +18,7 @@ export async function fetchBookDetails(search: string) {
     });
 
     if (response.ok) {
-      const json: BookDetails = await response.json();
+      const json: BookDetailsConfig = await response.json();
       return json;
     } else {
       throw new Error(

@@ -1,15 +1,11 @@
-import { Avatar } from "@/components/shared-components/Avatar";
-import { RatingStars } from "@/components/shared-components/RatingStars";
 import { getRelativeTimeString } from "@/utils/getRelativeTimeString";
 
-import { Rating, User } from "@prisma/client";
-
-export type RatingWithAuthor = Rating & {
-  user: User;
-};
+import { RatingWithAuthorConfig } from "@/types";
+import { Avatar } from "@/components/shared-components/Avatar";
+import { RatingStars } from "@/components/shared-components/RatingStars";
 
 interface UserRatingCardProps {
-  rating: RatingWithAuthor;
+  rating: RatingWithAuthorConfig;
 }
 
 export function UserRatingCard({ rating }: UserRatingCardProps) {

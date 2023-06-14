@@ -1,4 +1,5 @@
 import { BookDetailsCard } from "@/components/pages-components/explore/@ratingsModal/BookDetailsCard";
+
 import { fetchBookDetails } from "../../@ratingsModal/(...)explore/book/[id]/page";
 
 interface BookPageProps {

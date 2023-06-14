@@ -1,16 +1,18 @@
 "use client";
+
 import { useState } from "react";
+import Link from "next/link";
+import { RatingWithAuthorConfig } from "@/types";
+import { useSession } from "next-auth/react";
 
 import { RatingForm } from "./RatingForm";
-import { RatingWithAuthor, UserRatingCard } from "./UserRatingCard";
-import { useSession } from "next-auth/react";
-import Link from "next/link";
+import { UserRatingCard } from "./UserRatingCard";
 
-export function BookRatingsCard({
-  bookRatings,
-}: {
-  bookRatings: Array<RatingWithAuthor>;
-}) {
+interface BookRatingsCardProps {
+  bookRatings: Array<RatingWithAuthorConfig>;
+}
+
+export function BookRatingsCard({ bookRatings }: BookRatingsCardProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const { data: session, status } = useSession();

@@ -1,9 +1,7 @@
 import Link from "next/link";
 
-import {
-  BookCard,
-  PopularBooks,
-} from "@/components/shared-components/BookCard";
+import { BookWithRatingConfig } from "@/types";
+import { BookCard } from "@/components/shared-components/BookCard";
 import { ChevronRight } from "@/components/shared-components/icons";
 
 async function fetchPopularBooks() {
@@ -16,7 +14,7 @@ async function fetchPopularBooks() {
     });
 
     if (response.ok) {
-      const json: PopularBooks[] = await response.json();
+      const json: BookWithRatingConfig[] = await response.json();
       return json;
     } else {
       throw new Error(
