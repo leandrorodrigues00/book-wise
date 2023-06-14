@@ -4,8 +4,8 @@ import "../globals.css";
 
 import { ReactNode } from "react";
 
-import { NextAuthProvider } from "@/components/shared-components/NextAuthProvider";
-import { Sidebar } from "@/components/shared-components/Sidebar";
+import { NextAuthProvider } from "@/components/NextAuthProvider";
+import { Sidebar } from "@/components/Sidebar";
 
 const nunito = Nunito({ subsets: ["latin"] });
 

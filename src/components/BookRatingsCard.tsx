@@ -2,11 +2,11 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { RatingWithAuthorConfig } from "@/types";
 import { useSession } from "next-auth/react";
 
-import { RatingForm } from "./RatingForm";
-import { UserRatingCard } from "./UserRatingCard";
+import { RatingWithAuthorConfig } from "@/types";
+import { RatingForm } from "@/components/RatingForm";
+import { UserRatingCard } from "@/components/UserRatingCard";
 
 interface BookRatingsCardProps {
   bookRatings: Array<RatingWithAuthorConfig>;

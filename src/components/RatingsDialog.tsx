@@ -4,7 +4,7 @@ import type { ReactNode } from "react";
 import { useRouter } from "next/navigation";
 import * as Dialog from "@radix-ui/react-dialog";
 
-import { CloseIcon } from "@/components/shared-components/icons";
+import { CloseIcon } from "@/components/icons";
 
 interface RatingsDialogProps {
   children: ReactNode;

@@ -1,7 +1,6 @@
 import { RatingConfig } from "@/types";
-import { TrendingUp } from "@/components/shared-components/icons";
-
-import { BookRatings } from "./BookRatings";
+import { BookRatings } from "@/components/BookRatings";
+import { TrendingUp } from "@/components/icons";
 
 async function fetchLatestRatings() {
   const url = "http://localhost:3000/api/ratings/latest";

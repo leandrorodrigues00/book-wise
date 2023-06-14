@@ -1,4 +1,4 @@
-import { AuthButtons } from "@/components/shared-components/AuthButtons";
+import { AuthButtons } from "@/components/AuthButtons";
 
 export default function LoginPage() {
   return (

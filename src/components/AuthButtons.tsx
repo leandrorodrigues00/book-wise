@@ -2,7 +2,7 @@
 
 import { signIn } from "next-auth/react";
 
-import { Github, Google } from "@/components/shared-components/icons";
+import { Github, Google } from "@/components/icons";
 
 export function AuthButtons() {
   return (

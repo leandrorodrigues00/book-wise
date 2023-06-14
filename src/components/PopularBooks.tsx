@@ -1,8 +1,8 @@
 import Link from "next/link";
 
 import { BookWithRatingConfig } from "@/types";
-import { BookCard } from "@/components/shared-components/BookCard";
-import { ChevronRight } from "@/components/shared-components/icons";
+import { BookCard } from "@/components/BookCard";
+import { ChevronRight } from "@/components/icons";
 
 async function fetchPopularBooks() {
   const url = "http://localhost:3000/api/books/popular";

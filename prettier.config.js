@@ -20,7 +20,7 @@ module.exports = {
     "^@/components/(.*)$",
     "^@/styles/(.*)$",
     "^@/app/(.*)$",
-    "^@/components/shared-components/icons$",
+
     "",
     "^[./src]",
   ],

@@ -1,5 +1,5 @@
 import { BookWithCategoryConfig, CategoryConfig } from "@/types";
-import { BookGridSearches } from "@/components/pages-components/explore/BookGridSearches";
+import { BookGridSearches } from "@/components/BookGridSearches";
 
 async function fetchBooks(search: string) {
   const url = `http://localhost:3000/api/books?categoryId=${search}`;

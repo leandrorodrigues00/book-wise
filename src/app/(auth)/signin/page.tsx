@@ -1,7 +1,7 @@
 import Link from "next/link";
 
-import { AuthButtons } from "@/components/shared-components/AuthButtons";
-import { RocketLauch } from "@/components/shared-components/icons";
+import { AuthButtons } from "@/components/AuthButtons";
+import { RocketLauch } from "@/components/icons";
 
 export default async function Signin() {
   return (

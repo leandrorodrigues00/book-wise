@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import { RatingStars } from "@/components/shared-components/RatingStars";
+import { RatingStars } from "@/components/RatingStars";
 
 export function MyBookRatings() {
   return (

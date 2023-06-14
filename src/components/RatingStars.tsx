@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import { Star } from "./icons";
+import { Star } from "@/components/icons";
 
 interface RatingStarsProps {
   rating: number;

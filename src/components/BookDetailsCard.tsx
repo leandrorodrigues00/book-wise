@@ -1,8 +1,8 @@
 import Image from "next/image";
 
-import { Book, BookmarkSimple } from "@/components/shared-components/icons";
-import { RatingStars } from "@/components/shared-components/RatingStars";
 import { BookDetailsConfig } from "@/types";
+import { Book, BookmarkSimple } from "@/components/icons";
+import { RatingStars } from "@/components/RatingStars";
 
 interface BookDetailsCardProps {
   selectedBook: BookDetailsConfig;

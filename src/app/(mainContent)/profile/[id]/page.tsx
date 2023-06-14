@@ -1,6 +1,5 @@
-import { MyBookRatings } from "@/components/pages-components/Profile/MyBookRatings";
-import { Avatar } from "@/components/shared-components/Avatar";
-import { Form } from "@/components/shared-components/Form";
+import { Avatar } from "@/components/ui/Avatar";
+import { Form } from "@/components/ui/Form";
 import {
   Book,
   BookmarkSimple,
@@ -8,7 +7,8 @@ import {
   MagnifyingGlass,
   Profile,
   UserList,
-} from "@/components/shared-components/icons";
+} from "@/components/icons";
+import { MyBookRatings } from "@/components/MyBookRatings";
 
 interface ProfilePageProps {
   params: {

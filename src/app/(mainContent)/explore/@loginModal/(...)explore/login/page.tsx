@@ -1,5 +1,5 @@
-import { LoginDialog } from "@/components/pages-components/explore/@loginModal/LoginDialog";
-import { AuthButtons } from "@/components/shared-components/AuthButtons";
+import { AuthButtons } from "@/components/AuthButtons";
+import { LoginDialog } from "@/components/LoginDialog";
 
 export default async function LoginModal() {
   return (

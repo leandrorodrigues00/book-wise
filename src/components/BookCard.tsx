@@ -1,8 +1,7 @@
 import Image from "next/image";
 
 import { BookWithRatingConfig } from "@/types";
-
-import { RatingStars } from "./RatingStars";
+import { RatingStars } from "@/components/RatingStars";
 
 interface BookCardProps {
   size?: "base" | "lg";

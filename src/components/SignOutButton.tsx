@@ -2,7 +2,7 @@
 
 import { signOut } from "next-auth/react";
 
-import { SignOut } from "./icons";
+import { SignOut } from "@/components/icons";
 
 export function SignOutButton() {
   return (

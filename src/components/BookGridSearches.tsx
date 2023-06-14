@@ -4,12 +4,9 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 
 import { BookWithCategoryConfig, CategoryConfig } from "@/types";
-import { BookCard } from "@/components/shared-components/BookCard";
-import { Form } from "@/components/shared-components/Form";
-import {
-  Binoculars,
-  MagnifyingGlass,
-} from "@/components/shared-components/icons";
+import { Form } from "@/components/ui/Form";
+import { BookCard } from "@/components/BookCard";
+import { Binoculars, MagnifyingGlass } from "@/components/icons";
 
 interface BookGridSearchesProps {
   bookCategories: CategoryConfig[];
