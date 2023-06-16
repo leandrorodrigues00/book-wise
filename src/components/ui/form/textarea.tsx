@@ -1,5 +1,7 @@
 import { TextareaHTMLAttributes } from "react";
 
+import { cn } from "@/utils/tailwind-classnames";
+
 interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   name: string;
   maxLength?: number;
@@ -9,7 +11,7 @@ export function Textarea({ className, maxLength, ...props }: TextareaProps) {
   const valueLength = String(props.value)?.length ?? 0;
 
   return (
-    <div className={`${className} flex w-full flex-col transition-all`}>
+    <div className={cn("flex w-full flex-col transition-all", className)}>
       <textarea
         id={props.name}
         {...props}

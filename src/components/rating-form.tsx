@@ -28,13 +28,13 @@ export function RatingForm({ setIsOpen, user }: RatingFormProps) {
         <RatingStars
           rating={currentRate}
           setRating={setCurrentRate}
-          size="lg"
+          className="h-7 w-7"
         />
       </header>
 
       <Form.Textarea
         name="userRating"
-        className="min-h-[164px] w-full rounded border border-gray-500 bg-gray-800  text-sm  focus:border-green-200"
+        className="min-h-[164px] rounded border border-gray-500 bg-gray-800 text-sm focus:border-green-200"
         placeholder="Escreva sua avaliação"
         maxLength={450}
         value={description}

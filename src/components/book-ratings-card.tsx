@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useSession } from "next-auth/react";
 
 import { RatingWithAuthorConfig } from "@/types";
+import { cn } from "@/utils/tailwind-classnames";
 import { RatingForm } from "@/components/rating-form";
 import { UserRatingCard } from "@/components/user-rating-card";
 
@@ -25,9 +26,10 @@ export function BookRatingsCard({ bookRatings }: BookRatingsCardProps) {
         {isAuthenticated ? (
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className={`rounded px-3 py-1 font-bold leading-base text-purple-100 hover:bg-[#151822] hover:transition-colors ${
+            className={cn(
+              "rounded px-3 py-1 font-bold leading-base text-purple-100 hover:bg-[#151822] hover:transition-colors",
               isOpen && "invisible"
-            }`}
+            )}
           >
             Avaliar
           </button>

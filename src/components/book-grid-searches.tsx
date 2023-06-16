@@ -2,8 +2,9 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { BookWithCategoryConfig, CategoryConfig } from "@/types";
 
+import { BookWithCategoryConfig, CategoryConfig } from "@/types";
+import { cn } from "@/utils/tailwind-classnames";
 import { Form } from "@/components/ui/form";
 import { BookCard } from "@/components/book-card";
 import { Binoculars, MagnifyingGlass } from "@/components/icons";
@@ -72,11 +73,12 @@ export function BookGridSearches({
         <div className="flex flex-wrap gap-3">
           <button
             onClick={() => handleChangeCategory("")}
-            className={`rounded-full border  px-4 leading-base  transition ${
+            className={cn(
+              "rounded-full border px-4 leading-base transition",
               selectedCategory === ""
                 ? "border-transparent bg-purple-200 text-gray-100"
-                : " border-purple-100 text-purple-100 hover:border-purple-200 hover:text-purple-200"
-            }`}
+                : "border-purple-100 text-purple-100 hover:border-purple-200 hover:text-purple-200"
+            )}
           >
             Tudo
           </button>
@@ -84,11 +86,12 @@ export function BookGridSearches({
             <button
               key={category.id}
               onClick={() => handleChangeCategory(category.id)}
-              className={`rounded-full border  px-4 leading-base  transition ${
+              className={cn(
+                "rounded-full border px-4 leading-base  transition",
                 category.id === selectedCategory
                   ? "border-transparent bg-purple-200 text-gray-100"
-                  : " border-purple-100 text-purple-100 hover:border-purple-200 hover:text-purple-200"
-              }`}
+                  : "border-purple-100 text-purple-100 hover:border-purple-200 hover:text-purple-200"
+              )}
             >
               {category.name}
             </button>

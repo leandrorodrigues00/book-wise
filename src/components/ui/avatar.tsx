@@ -3,6 +3,8 @@
 import * as React from "react";
 import * as AvatarPrimitive from "@radix-ui/react-avatar";
 
+import { cn } from "@/utils/tailwind-classnames";
+
 type RootElement = React.ElementRef<typeof AvatarPrimitive.Root>;
 type RootProps = React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Root>;
 
@@ -18,9 +20,10 @@ const Avatar = React.forwardRef<RootElement, RootProps>(
   ({ className, ...props }, ref) => (
     <AvatarPrimitive.Root
       ref={ref}
-      className={`relative flex h-10 w-10 overflow-hidden rounded-full bg-gradient-vertical p-[1px] ${
-        className ? className : ""
-      }`}
+      className={cn(
+        "relative flex h-10 w-10 overflow-hidden rounded-full bg-gradient-vertical p-[1px]",
+        className
+      )}
       {...props}
     />
   )
@@ -31,7 +34,7 @@ const AvatarImage = React.forwardRef<ImageElement, ImageProps>(
   ({ className, ...props }, ref) => (
     <AvatarPrimitive.Image
       ref={ref}
-      className={`h-full w-full rounded-full object-cover ${className}`}
+      className={cn("h-full w-full rounded-full object-cover", className)}
       {...props}
     />
   )
@@ -42,7 +45,10 @@ const AvatarFallback = React.forwardRef<FallbackElement, FallbackProps>(
   ({ className, ...props }, ref) => (
     <AvatarPrimitive.Fallback
       ref={ref}
-      className={`flex h-full w-full items-center justify-center rounded-full ${className}`}
+      className={cn(
+        "flex h-full w-full items-center justify-center rounded-full",
+        className
+      )}
       {...props}
     />
   )

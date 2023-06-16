@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { BookDetailsConfig } from "@/types";
 
+import { BookDetailsConfig } from "@/types";
 import { Book, BookmarkSimple } from "@/components/icons";
 import { RatingStars } from "@/components/rating-stars";
 
@@ -31,7 +31,7 @@ export function BookDetailsCard({ selectedBook }: BookDetailsCardProps) {
           </div>
           <div className=" space-y-5">
             <RatingStars rating={selectedBook.avgRating} />
-            <span className="text-sm  text-gray-400">
+            <span className="text-sm text-gray-400">
               {totalRatings}
               {totalRatings > 1 ? " Avaliações" : " Avaliação"}
             </span>
