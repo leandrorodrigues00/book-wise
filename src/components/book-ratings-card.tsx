@@ -5,8 +5,8 @@ import Link from "next/link";
 import { useSession } from "next-auth/react";
 
 import { RatingWithAuthorConfig } from "@/types";
-import { RatingForm } from "@/components/RatingForm";
-import { UserRatingCard } from "@/components/UserRatingCard";
+import { RatingForm } from "@/components/rating-form";
+import { UserRatingCard } from "@/components/user-rating-card";
 
 interface BookRatingsCardProps {
   bookRatings: Array<RatingWithAuthorConfig>;

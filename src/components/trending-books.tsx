@@ -1,5 +1,5 @@
 import { RatingConfig } from "@/types";
-import { BookRatings } from "@/components/BookRatings";
+import { BookRatings } from "@/components/book-ratings";
 import { TrendingUp } from "@/components/icons";
 
 async function fetchLatestRatings() {

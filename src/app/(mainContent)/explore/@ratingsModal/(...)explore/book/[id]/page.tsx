@@ -1,7 +1,7 @@
 import { BookDetailsConfig } from "@/types";
-import { BookDetailsCard } from "@/components/BookDetailsCard";
-import { BookRatingsCard } from "@/components/BookRatingsCard";
-import { RatingsDialog } from "@/components/RatingsDialog";
+import { BookDetailsCard } from "@/components/book-details-card";
+import { BookRatingsCard } from "@/components/book-ratings-card";
+import { RatingsDialog } from "@/components/ratings-dialog";
 
 interface BookModalProps {
   params: {

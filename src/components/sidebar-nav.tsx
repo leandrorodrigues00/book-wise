@@ -1,10 +1,10 @@
 import Link from "next/link";
 
 import { getCurrentUser } from "@/lib/session";
-import { ActiveLink } from "@/components/ui/ActiveLink";
+import { ActiveLink } from "@/components/ui/active-link";
 import { Binoculars, Profile, SignIn, TrendingUp } from "@/components/icons";
-import { SignOutButton } from "@/components/SignOutButton";
-import { UserAvatar } from "@/components/UserAvatar";
+import { SignOutButton } from "@/components/signout-button";
+import { UserAvatar } from "@/components/user-avatar";
 
 export async function Sidebar() {
   const user = await getCurrentUser();

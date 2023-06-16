@@ -2,7 +2,7 @@ import { Nunito } from "next/font/google";
 
 import "../globals.css";
 
-import { NextAuthProvider } from "@/components/NextAuthProvider";
+import { NextAuthProvider } from "@/components/next-auth-provider";
 
 const nunito = Nunito({ subsets: ["latin"] });
 

@@ -1,10 +1,10 @@
 import { Dispatch, SetStateAction, useState } from "react";
 import { User } from "next-auth";
 
-import { Form } from "@/components/ui/Form";
+import { Form } from "@/components/ui/form";
 import { Check, CloseIcon } from "@/components/icons";
-import { RatingStars } from "@/components/RatingStars";
-import { UserAvatar } from "@/components/UserAvatar";
+import { RatingStars } from "@/components/rating-stars";
+import { UserAvatar } from "@/components/user-avatar";
 
 interface RatingFormProps {
   setIsOpen: Dispatch<SetStateAction<boolean>>;

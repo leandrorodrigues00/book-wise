@@ -1,4 +1,4 @@
-import { Form } from "@/components/ui/Form";
+import { Form } from "@/components/ui/form";
 import {
   Book,
   BookmarkSimple,
@@ -7,8 +7,8 @@ import {
   Profile,
   UserList,
 } from "@/components/icons";
-import { MyBookRatings } from "@/components/MyBookRatings";
-import { UserAvatar } from "@/components/UserAvatar";
+import { ProfilieRatings } from "@/components/profile-ratings";
+import { UserAvatar } from "@/components/user-avatar";
 
 interface ProfilePageProps {
   params: {
@@ -37,10 +37,10 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
         </div>
 
         <div className="mt-8">
-          <MyBookRatings />
-          <MyBookRatings />
-          <MyBookRatings />
-          <MyBookRatings />
+          <ProfilieRatings />
+          <ProfilieRatings />
+          <ProfilieRatings />
+          <ProfilieRatings />
         </div>
       </div>
 

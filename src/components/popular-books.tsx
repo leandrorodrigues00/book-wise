@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import { BookWithRatingConfig } from "@/types";
-import { BookCard } from "@/components/BookCard";
+import { BookCard } from "@/components/book-card";
 import { ChevronRight } from "@/components/icons";
 
 async function fetchPopularBooks() {

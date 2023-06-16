@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { AuthButtons } from "@/components/AuthButtons";
+import { AuthButtons } from "@/components/auth-buttons";
 import { RocketLauch } from "@/components/icons";
 
 export default async function Signin() {

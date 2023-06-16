@@ -1,5 +1,5 @@
-import { AuthButtons } from "@/components/AuthButtons";
-import { LoginDialog } from "@/components/LoginDialog";
+import { AuthButtons } from "@/components/auth-buttons";
+import { LoginDialog } from "@/components/login-dialog";
 
 export default async function LoginModal() {
   return (

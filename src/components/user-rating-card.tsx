@@ -1,8 +1,7 @@
-import { getRelativeTimeString } from "@/utils/getRelativeTimeString";
-
 import { RatingWithAuthorConfig } from "@/types";
-import { RatingStars } from "@/components/RatingStars";
-import { UserAvatar } from "@/components/UserAvatar";
+import { getRelativeTimeString } from "@/utils/get-relative-time-string";
+import { RatingStars } from "@/components/rating-stars";
+import { UserAvatar } from "@/components/user-avatar";
 
 interface UserRatingCardProps {
   rating: RatingWithAuthorConfig;

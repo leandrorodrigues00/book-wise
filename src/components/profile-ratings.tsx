@@ -1,8 +1,8 @@
 import Image from "next/image";
 
-import { RatingStars } from "@/components/RatingStars";
+import { RatingStars } from "@/components/rating-stars";
 
-export function MyBookRatings() {
+export function ProfilieRatings() {
   return (
     <div className="mb-6">
       <span className="text-sm leading-base text-gray-300">Há 2 dias</span>

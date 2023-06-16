@@ -1,5 +1,5 @@
-import { PopularBooks } from "@/components/PopularBooks";
-import { TrendingBooks } from "@/components/TrendingBooks";
+import { PopularBooks } from "@/components/popular-books";
+import { TrendingBooks } from "@/components/trending-books";
 
 export default function Home() {
   return (

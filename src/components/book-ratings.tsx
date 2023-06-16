@@ -1,9 +1,9 @@
 import Image from "next/image";
 
 import { RatingConfig } from "@/types";
-import { RatingStars } from "@/components/RatingStars";
-import { ShowMoreButton } from "@/components/ShowMoreButton";
-import { UserAvatar } from "@/components/UserAvatar";
+import { RatingStars } from "@/components/rating-stars";
+import { ShowMoreButton } from "@/components/show-more-button";
+import { UserAvatar } from "@/components/user-avatar";
 
 interface BookRatingsProps {
   ratings: RatingConfig;

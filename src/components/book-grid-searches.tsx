@@ -2,10 +2,10 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-
 import { BookWithCategoryConfig, CategoryConfig } from "@/types";
-import { Form } from "@/components/ui/Form";
-import { BookCard } from "@/components/BookCard";
+
+import { Form } from "@/components/ui/form";
+import { BookCard } from "@/components/book-card";
 import { Binoculars, MagnifyingGlass } from "@/components/icons";
 
 interface BookGridSearchesProps {

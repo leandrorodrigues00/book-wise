@@ -1,4 +1,4 @@
-import { BookDetailsCard } from "@/components/BookDetailsCard";
+import { BookDetailsCard } from "@/components/book-details-card";
 
 import { fetchBookDetails } from "../../@ratingsModal/(...)explore/book/[id]/page";
 
