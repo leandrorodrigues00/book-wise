@@ -1,9 +1,9 @@
 import Image from "next/image";
 
 import { RatingConfig } from "@/types";
-import { Avatar } from "@/components/ui/Avatar";
 import { RatingStars } from "@/components/RatingStars";
 import { ShowMoreButton } from "@/components/ShowMoreButton";
+import { UserAvatar } from "@/components/UserAvatar";
 
 interface BookRatingsProps {
   ratings: RatingConfig;
@@ -14,9 +14,11 @@ export function BookRatings({ ratings }: BookRatingsProps) {
     <div className="w-full rounded-lg bg-gray-700 p-6">
       <header className="flex justify-between">
         <div className="flex items-center gap-4">
-          <Avatar
-            src={ratings.user.image || ""}
-            alt={`Profile photo of ${ratings.user.name}`}
+          <UserAvatar
+            user={{
+              name: ratings.user.name,
+              image: ratings.user.image,
+            }}
           />
 
           <div>

@@ -1,17 +1,17 @@
 import { Dispatch, SetStateAction, useState } from "react";
-import { Session } from "next-auth";
+import { User } from "next-auth";
 
-import { Avatar } from "@/components/ui/Avatar";
 import { Form } from "@/components/ui/Form";
 import { Check, CloseIcon } from "@/components/icons";
 import { RatingStars } from "@/components/RatingStars";
+import { UserAvatar } from "@/components/UserAvatar";
 
 interface RatingFormProps {
   setIsOpen: Dispatch<SetStateAction<boolean>>;
-  session: Session;
+  user: Pick<User, "name" | "image" | "email">;
 }
 
-export function RatingForm({ setIsOpen, session }: RatingFormProps) {
+export function RatingForm({ setIsOpen, user }: RatingFormProps) {
   const [currentRate, setCurrentRate] = useState(0);
   const [description, setDescription] = useState("");
 
@@ -19,12 +19,10 @@ export function RatingForm({ setIsOpen, session }: RatingFormProps) {
     <div className="w-full rounded-lg bg-gray-700 p-6">
       <header className="mb-6 flex items-center justify-between">
         <div className="flex items-center space-x-4">
-          <Avatar
-            src={session.user?.image || ""}
-            alt={`Profile photo of ${session.user?.name}`}
+          <UserAvatar
+            user={{ name: user.name || null, image: user.image || null }}
           />
-
-          <span className="font-bold leading-base">{session.user?.name}</span>
+          <span className="font-bold leading-base">{user.name}</span>
         </div>
 
         <RatingStars

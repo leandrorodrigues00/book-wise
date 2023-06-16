@@ -1,4 +1,3 @@
-import { Avatar } from "@/components/ui/Avatar";
 import { Form } from "@/components/ui/Form";
 import {
   Book,
@@ -9,6 +8,7 @@ import {
   UserList,
 } from "@/components/icons";
 import { MyBookRatings } from "@/components/MyBookRatings";
+import { UserAvatar } from "@/components/UserAvatar";
 
 interface ProfilePageProps {
   params: {
@@ -46,11 +46,14 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
 
       <div className="mt-[4.75rem] flex h-full max-h-[34.687rem]  flex-col border-l border-l-gray-700 px-14">
         <header className="flex flex-col items-center after:my-8 after:h-1 after:w-8 after:rounded-full after:bg-gradient-vertical after:content-['']">
-          <Avatar
-            borderWidth="md"
-            size="lg"
-            src="https://s3-alpha-sig.figma.com/img/7481/84a6/ca5e70b2945cbb4532d7b4e20d745736?Expires=1685318400&Signature=Eqtgj2K5Fb6~LN--F8rElkZo3O85169hHp~3mX9tO72h22UgoKZR7ndb1zq~0HaFuA7knX7ESaQ2ylvLF~6Kw09VO6lw8RfyVtgU4i2tu18TahqJfh-vtyHmcZHgNIlNEHVDZS~nKtaabUk~dyKM0z20UqSZS4RRh8HtPM0QS3LkRw2u98kGE2xQL01E6X9d2NXopEbjQUSf0f1c3U~VjcTG8hytONcqh4xozHFqLDrIRL-VHS-JtI1cBAs-hPwQtK1xzkIjKblgcXIoxMMYweBOsaIlLGAK6Qj0Sfex6UAZ-0NWFzvEBhmnw6Lnlg7qXYUi3Z9NwJqPRwpykV~Yhg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
-            alt={"teste"}
+          <UserAvatar
+            user={{
+              name: "teste",
+              image:
+                "https://lh3.googleusercontent.com/a/AAcHTteJvM1p7voT_ib-5mn5MBXjuvEC9uZ3ttVJR4q6Qw=s96-c" ||
+                null,
+            }}
+            className="h-[72px] w-[72px] p-[2px] "
           />
           <p className="mt-5 text-xl  font-bold">Cristofer Rosser</p>
           <span className="text-sm leading-base text-gray-400">

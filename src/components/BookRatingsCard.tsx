@@ -43,7 +43,14 @@ export function BookRatingsCard({ bookRatings }: BookRatingsCardProps) {
 
       <div className="flex flex-col space-y-3 pb-10">
         {isOpen && isAuthenticated && (
-          <RatingForm setIsOpen={setIsOpen} session={session} />
+          <RatingForm
+            setIsOpen={setIsOpen}
+            user={{
+              name: session.user?.name,
+              email: session.user?.email,
+              image: session.user?.image,
+            }}
+          />
         )}
 
         {bookRatings.map((rating) => (

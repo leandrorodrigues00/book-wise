@@ -2,9 +2,9 @@ import Link from "next/link";
 
 import { getCurrentUser } from "@/lib/session";
 import { ActiveLink } from "@/components/ui/ActiveLink";
-import { Avatar } from "@/components/ui/Avatar";
 import { Binoculars, Profile, SignIn, TrendingUp } from "@/components/icons";
 import { SignOutButton } from "@/components/SignOutButton";
+import { UserAvatar } from "@/components/UserAvatar";
 
 export async function Sidebar() {
   const user = await getCurrentUser();
@@ -41,11 +41,11 @@ export async function Sidebar() {
       <footer className="mb-6 mt-auto">
         {user ? (
           <div className="flex items-center space-x-3">
-            <Avatar
-              size="sm"
-              src={user.image || ""}
-              alt={`Profile photo of ${user.name}`}
+            <UserAvatar
+              user={{ name: user.name || null, image: user.image || null }}
+              className="h-8 w-8"
             />
+
             <p>{user.name?.split(" ")[0]}</p>
             <SignOutButton />
           </div>

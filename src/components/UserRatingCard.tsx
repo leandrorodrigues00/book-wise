@@ -1,8 +1,8 @@
 import { getRelativeTimeString } from "@/utils/getRelativeTimeString";
 
 import { RatingWithAuthorConfig } from "@/types";
-import { Avatar } from "@/components/ui/Avatar";
 import { RatingStars } from "@/components/RatingStars";
+import { UserAvatar } from "@/components/UserAvatar";
 
 interface UserRatingCardProps {
   rating: RatingWithAuthorConfig;
@@ -18,9 +18,11 @@ export function UserRatingCard({ rating }: UserRatingCardProps) {
     <div className="rounded-lg bg-gray-700 p-6">
       <header className="mb-5 flex justify-between">
         <div className="flex items-center gap-4">
-          <Avatar
-            src={rating.user.image!}
-            alt={`Profile photo of ${rating.user.name}`}
+          <UserAvatar
+            user={{
+              name: rating.user.name,
+              image: rating.user.image,
+            }}
           />
 
           <div>

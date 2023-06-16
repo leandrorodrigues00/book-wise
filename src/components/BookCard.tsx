@@ -34,6 +34,7 @@ export function BookCard({ size = "base", book }: BookCardProps) {
           <h2 className="line-clamp-2 font-bold leading-short">{book.name}</h2>
           <p className="text-sm leading-base text-gray-400">{book.author}</p>
         </div>
+
         <RatingStars rating={book.avgRating} />
       </div>
     </div>
