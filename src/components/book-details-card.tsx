@@ -11,7 +11,7 @@ interface BookDetailsCardProps {
 export function BookDetailsCard({ selectedBook }: BookDetailsCardProps) {
   const totalRatings = selectedBook.ratings.length;
   return (
-    <div className="mb-10 flex flex-col space-y-10 rounded-lg bg-gray-700 px-8 py-6">
+    <div className="mb-10 flex max-h-[414px] flex-col space-y-10 rounded-lg bg-gray-700 px-8 py-6">
       <div className="flex w-full gap-5">
         <Image
           src={selectedBook.cover_url}
@@ -20,7 +20,7 @@ export function BookDetailsCard({ selectedBook }: BookDetailsCardProps) {
           alt={`Cover of the book ${selectedBook.name}`}
         />
 
-        <div className="flex flex-col justify-between  text-left">
+        <div className="flex flex-col justify-between text-left">
           <div>
             <h2 className="line-clamp-2 font-bold leading-short">
               {selectedBook.name}
