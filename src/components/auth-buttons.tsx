@@ -12,7 +12,7 @@ export function AuthButtons() {
         onClick={() => signIn("google")}
       >
         <Google className="h-8 w-8" />
-        <span className="text-lg font-bold leading-base text-gray-200">
+        <span className="text-lg font-bold leading-base">
           Entrar com Google
         </span>
       </button>
@@ -21,7 +21,7 @@ export function AuthButtons() {
         onClick={() => signIn("github")}
       >
         <Github className="h-8 w-8 fill-current text-white" />
-        <span className="text-lg font-bold leading-base text-gray-200">
+        <span className="text-lg font-bold leading-base">
           Entrar com GitHub
         </span>
       </button>

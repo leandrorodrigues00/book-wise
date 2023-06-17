@@ -1,40 +1,43 @@
 import Image from "next/image";
 
+import { ProfileRatingConfig } from "@/types";
+import { getRelativeTimeString } from "@/utils/get-relative-time-string";
 import { RatingStars } from "@/components/rating-stars";
 
-export function ProfilieRatings() {
+interface ProfileRatingsProps {
+  rating: ProfileRatingConfig;
+}
+
+export function ProfileRatings({ rating }: ProfileRatingsProps) {
+  const timeString = getRelativeTimeString(
+    new Date(rating.created_at),
+    "en-US"
+  );
   return (
     <div className="mb-6">
-      <span className="text-sm leading-base text-gray-300">Há 2 dias</span>
+      <span className="text-sm leading-base text-gray-300">{timeString}</span>
 
       <div className="mt-2 rounded-lg bg-gray-700 p-6">
-        <header className="flex gap-5    ">
+        <header className="flex gap-5">
           <Image
-            src="/images/books/entendendo-algoritmos.png"
+            src={rating.book.cover_url}
             width={98}
             height={134}
-            alt="entendendo-algoritmos"
+            alt={`Cover of the book ${rating.book.name}`}
           />
 
           <div className="flex flex-col justify-between">
             <div>
-              <h2 className="font-bold leading-short">Entendendo Algoritmos</h2>
+              <h2 className="font-bold leading-short">{rating.book.name}</h2>
               <p className="text-sm leading-base text-gray-400">
-                Aditya Bhargava
+                {rating.book.author}
               </p>
             </div>
-            <RatingStars rating={4} />
+            <RatingStars rating={rating.rate} />
           </div>
         </header>
         <p className="mt-6 text-sm leading-base text-gray-300">
-          Tristique massa sed enim lacinia odio. Congue ut faucibus nunc vitae
-          non. Nam feugiat vel morbi viverra vitae mi. Vitae fringilla ut et
-          suspendisse enim suspendisse vitae. Leo non eget lacus sollicitudin
-          tristique pretium quam. Mollis et luctus amet sed convallis varius
-          massa sagittis. Proin sed proin at leo quis ac sem. Nam donec accumsan
-          curabitur amet tortor quam sit. Bibendum enim sit dui lorem urna amet
-          elit rhoncus ut. Aliquet euismod vitae ut turpis. Aliquam amet integer
-          pellentesque.
+          {rating.description}
         </p>
       </div>
     </div>

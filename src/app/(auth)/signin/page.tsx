@@ -16,7 +16,7 @@ export default async function Signin() {
             <p className="text-2xl font-bold leading-short text-gray-100">
               Boas vindas!
             </p>
-            <p className="leading-base text-gray-200">
+            <p className="leading-base">
               Faça seu login ou acesse como visitante.
             </p>
           </div>
@@ -29,7 +29,7 @@ export default async function Signin() {
               className="flex w-full items-center gap-5 rounded-lg bg-gray-600 px-6 py-5 duration-300 hover:bg-gray-500"
             >
               <RocketLauch className="h-8 w-8 fill-current text-purple-100" />
-              <span className="text-lg font-bold leading-base text-gray-200">
+              <span className="text-lg font-bold leading-base">
                 Acessar como visitante
               </span>
             </Link>

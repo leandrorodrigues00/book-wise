@@ -49,3 +49,28 @@ export interface BookDetailsConfig extends BookWithCategoryConfig {
     }
   >;
 }
+
+export interface UserProfileConfig {
+  readPages: number;
+  ratedBooks: number;
+  readAuthors: number;
+  mostReadCategory?: string;
+  user: Pick<User, "name" | "image" | "id"> & {
+    member_since: string;
+  };
+  ratings: Array<ProfileRatingConfig>;
+}
+
+export interface ProfileRatingConfig
+  extends Pick<
+    RatingConfig,
+    "id" | "rate" | "description" | "created_at" | "book_id" | "userId"
+  > {
+  book: BookConfig & {
+    categories: Array<
+      CategoriesOnBooks & {
+        category: CategoryConfig;
+      }
+    >;
+  };
+}

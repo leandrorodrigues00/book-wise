@@ -29,7 +29,7 @@ export async function Sidebar() {
           </li>
           {user && (
             <li>
-              <ActiveLink href="/profile/teste">
+              <ActiveLink href={`/profile/${user.id}`}>
                 <Profile className="h-6 w-6 fill-current" />
                 Perfil
               </ActiveLink>
@@ -52,7 +52,7 @@ export async function Sidebar() {
         ) : (
           <Link
             href="/signin"
-            className="flex items-center gap-3 font-bold leading-base text-gray-200"
+            className="flex items-center gap-3 font-bold leading-base"
           >
             Fazer login
             <SignIn className="h-5 w-5 fill-current text-green-100" />

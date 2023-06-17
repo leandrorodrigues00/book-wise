@@ -12,7 +12,11 @@ type ActiveLinkProps = {
 
 export function ActiveLink({ href, children, ...rest }: ActiveLinkProps) {
   const pathname = usePathname();
-  const isCurrentPath = pathname === href;
+
+  const isCurrentPath =
+    pathname === href ||
+    (pathname.startsWith("/profile") && href.toString().startsWith("/profile"));
+
   return (
     <Link
       href={href}
