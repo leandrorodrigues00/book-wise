@@ -1,45 +1,51 @@
-import Image from "next/image";
+"use client";
 
-import { ProfileRatingConfig } from "@/types";
-import { getRelativeTimeString } from "@/utils/get-relative-time-string";
-import { RatingStars } from "@/components/rating-stars";
+import { useMemo, useState } from "react";
+
+import { UserProfileConfig } from "@/types";
+import { Form } from "@/components/ui/form";
+import { MagnifyingGlass } from "@/components/icons";
+import ProfileRatingsCard from "@/components/profile-ratings-card";
 
 interface ProfileRatingsProps {
-  rating: ProfileRatingConfig;
+  profile: UserProfileConfig;
 }
 
-export function ProfileRatings({ rating }: ProfileRatingsProps) {
-  const timeString = getRelativeTimeString(
-    new Date(rating.created_at),
-    "en-US"
-  );
+export function ProfileRatings({ profile }: ProfileRatingsProps) {
+  const [search, setSearch] = useState("");
+
+  const filteredBooks = useMemo(() => {
+    return profile.ratings.filter((rating) => {
+      return rating.book.name.toLowerCase().includes(search.toLowerCase());
+    });
+  }, [profile, search]);
+
   return (
-    <div className="mb-6">
-      <span className="text-sm leading-base text-gray-300">{timeString}</span>
+    <>
+      <Form.Input
+        name="profileBook"
+        placeholder="Buscar livro avaliado"
+        icon={
+          <MagnifyingGlass className="h-5 w-5 fill-current text-gray-500 group-focus-within:text-green-200" />
+        }
+        value={search}
+        onChange={(props) => setSearch(props.target.value)}
+        className="group mt-10 flex w-full rounded border border-gray-500 bg-gray-800 px-5 py-3 text-sm leading-base focus-within:border-green-200"
+      />
 
-      <div className="mt-2 rounded-lg bg-gray-700 p-6">
-        <header className="flex gap-5">
-          <Image
-            src={rating.book.cover_url}
-            width={98}
-            height={134}
-            alt={`Cover of the book ${rating.book.name}`}
-          />
-
-          <div className="flex flex-col justify-between">
-            <div>
-              <h2 className="font-bold leading-short">{rating.book.name}</h2>
-              <p className="text-sm leading-base text-gray-400">
-                {rating.book.author}
-              </p>
-            </div>
-            <RatingStars rating={rating.rate} />
-          </div>
-        </header>
-        <p className="mt-6 text-sm leading-base text-gray-300">
-          {rating.description}
-        </p>
+      <div className="mt-8">
+        {filteredBooks.length > 0 ? (
+          filteredBooks.map((rating) => (
+            <ProfileRatingsCard key={rating.id} rating={rating} />
+          ))
+        ) : (
+          <p className="font-bold leading-short text-gray-400">
+            {search
+              ? "Nenhum resultado encontrado"
+              : "Nenhuma avaliação encontrada"}
+          </p>
+        )}
       </div>
-    </div>
+    </>
   );
 }

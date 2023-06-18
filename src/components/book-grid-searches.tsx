@@ -102,9 +102,13 @@ export function BookGridSearches({
       {/* Books Grid  */}
       <div className="no-scrollbar grid max-h-[690px]  grid-cols-3 gap-5 overflow-y-auto pb-10">
         {isLoading ? (
-          <p className="text-purple-400">Carregando livros...</p>
+          <p className="font-bold leading-short text-gray-400">
+            Carregando livros...
+          </p>
         ) : filteredBooks.length === 0 ? (
-          <p className="text-purple-400">Nenhum livro encontrado.</p>
+          <p className="font-bold leading-short text-gray-400">
+            Nenhum livro encontrado.
+          </p>
         ) : (
           filteredBooks.map((book) => (
             <Link key={book.id} href={`explore/book/${book.id}`}>

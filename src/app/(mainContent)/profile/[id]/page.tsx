@@ -2,8 +2,7 @@ import Link from "next/link";
 
 import { UserProfileConfig } from "@/types";
 import { getCurrentUser } from "@/lib/session";
-import { Form } from "@/components/ui/form";
-import { ChevronLeft, MagnifyingGlass, Profile } from "@/components/icons";
+import { ChevronLeft, Profile } from "@/components/icons";
 import ProfileDetails from "@/components/profile-details";
 import { ProfileRatings } from "@/components/profile-ratings";
 
@@ -65,26 +64,9 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
               </span>
             </Link>
           )}
-
-          <Form.Input
-            name="profileBook"
-            placeholder="Buscar livro avaliado"
-            icon={
-              <MagnifyingGlass className="h-5 w-5 fill-current text-gray-500 group-focus-within:text-green-200" />
-            }
-            className="group mt-10 flex w-full rounded border border-gray-500 bg-gray-800 px-5 py-3 text-sm leading-base focus-within:border-green-200"
-          />
         </div>
 
-        <div className="mt-8">
-          {profile.ratings.length > 0 ? (
-            profile.ratings.map((rating) => <ProfileRatings rating={rating} />)
-          ) : (
-            <p className="font-bold leading-short text-gray-400">
-              Nenhuma avaliação realizada...
-            </p>
-          )}
-        </div>
+        <ProfileRatings profile={profile} />
       </div>
 
       <ProfileDetails profile={profile} />
