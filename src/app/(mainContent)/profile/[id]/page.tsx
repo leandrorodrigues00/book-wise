@@ -57,11 +57,12 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
               Perfil
             </h1>
           ) : (
-            <Link className="flex items-center space-x-3" href={"/explore"}>
+            <Link
+              className="flex w-fit items-center justify-center space-x-3 rounded-md px-2 py-1 hover:bg-gray-700"
+              href={"/explore"}
+            >
               <ChevronLeft className="h-6 w-6 fill-current" />
-              <span className="font-bold leading-base hover:text-gray-400">
-                Voltar
-              </span>
+              <span className="font-bold leading-base">Voltar</span>
             </Link>
           )}
         </div>
