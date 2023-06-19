@@ -24,7 +24,7 @@ export function ActiveLink({ href, children, ...rest }: ActiveLinkProps) {
         "flex items-center gap-3 leading-base",
         isCurrentPath
           ? "font-bold before:ml-[-20px] before:mr-1 before:h-6 before:w-1 before:rounded-full  before:bg-gradient-vertical before:content-['']"
-          : "text-gray-400"
+          : "text-gray-400 transition hover:text-gray-300"
       )}
       {...rest}
     >

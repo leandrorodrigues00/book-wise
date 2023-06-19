@@ -77,7 +77,7 @@ export function BookGridSearches({
               "rounded-full border px-4 leading-base transition",
               selectedCategory === ""
                 ? "border-transparent bg-purple-200 text-gray-100"
-                : "border-purple-100 text-purple-100 hover:border-purple-200 hover:text-purple-200"
+                : "border-purple-100 text-purple-100 transition hover:border-gray-300 hover:text-gray-300"
             )}
           >
             Tudo
@@ -90,7 +90,7 @@ export function BookGridSearches({
                 "rounded-full border px-4 leading-base  transition",
                 category.id === selectedCategory
                   ? "border-transparent bg-purple-200 text-gray-100"
-                  : "border-purple-100 text-purple-100 hover:border-purple-200 hover:text-purple-200"
+                  : "border-purple-100 text-purple-100 transition hover:border-gray-300 hover:text-gray-300"
               )}
             >
               {category.name}

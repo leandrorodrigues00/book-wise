@@ -42,7 +42,11 @@ export async function Sidebar() {
         {user ? (
           <div className="flex items-center space-x-3">
             <UserAvatar
-              user={{ name: user.name || null, image: user.image || null }}
+              user={{
+                name: user.name || null,
+                image: user.image || null,
+                id: user.id,
+              }}
               className="h-8 w-8"
             />
 

@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { BookWithRatingConfig } from "@/types";
 
+import { BookWithRatingConfig } from "@/types";
 import { RatingStars } from "@/components/rating-stars";
 
 interface BookCardProps {
@@ -20,7 +20,7 @@ export function BookCard({ size = "base", book }: BookCardProps) {
     },
   };
   return (
-    <div className="flex w-full gap-5 rounded-lg bg-gray-700 px-5 py-[1.125rem] hover:cursor-pointer">
+    <div className="flex w-full gap-5 rounded-lg border border-gray-700 bg-gray-700 px-5 py-[1.125rem] transition hover:cursor-pointer hover:border-gray-600">
       <Image
         src={book.cover_url}
         className="rounded object-cover"

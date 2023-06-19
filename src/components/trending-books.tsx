@@ -44,8 +44,8 @@ export async function TrendingBooks() {
         <p className="mb-4 text-sm leading-base">Avaliações mais recentes</p>
 
         <div className="flex flex-col gap-3">
-          {latestRatings.map((ratings, index) => (
-            <BookRatings ratings={ratings} key={index} />
+          {latestRatings.map((ratings) => (
+            <BookRatings ratings={ratings} key={ratings.id} />
           ))}
         </div>
       </div>

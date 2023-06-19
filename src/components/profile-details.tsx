@@ -16,6 +16,7 @@ export default function ProfileDetails({ profile }: ProfileDetailsProps) {
           user={{
             name: profile.user.name,
             image: profile.user.image || null,
+            id: profile.user.id,
           }}
           className="h-[72px] w-[72px] p-[2px] "
         />

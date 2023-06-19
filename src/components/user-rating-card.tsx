@@ -21,6 +21,7 @@ export function UserRatingCard({ rating }: UserRatingCardProps) {
             user={{
               name: rating.user.name,
               image: rating.user.image,
+              id: rating.user.id,
             }}
           />
 

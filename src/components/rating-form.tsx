@@ -8,7 +8,7 @@ import { UserAvatar } from "@/components/user-avatar";
 
 interface RatingFormProps {
   setIsOpen: Dispatch<SetStateAction<boolean>>;
-  user: Pick<User, "name" | "image" | "email">;
+  user: Pick<User, "name" | "image" | "email" | "id">;
 }
 
 export function RatingForm({ setIsOpen, user }: RatingFormProps) {
@@ -20,7 +20,11 @@ export function RatingForm({ setIsOpen, user }: RatingFormProps) {
       <header className="mb-6 flex items-center justify-between">
         <div className="flex items-center space-x-4">
           <UserAvatar
-            user={{ name: user.name || null, image: user.image || null }}
+            user={{
+              name: user.name || null,
+              image: user.image || null,
+              id: user.id,
+            }}
           />
           <span className="font-bold leading-base">{user.name}</span>
         </div>

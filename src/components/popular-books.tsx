@@ -40,8 +40,8 @@ export async function PopularBooks() {
       <header className="flex items-center justify-between">
         <p className="text-sm leading-base">Livros populares</p>
         <Link
-          className="flex items-center gap-2 rounded px-2 py-1 text-sm font-bold leading-base text-purple-100 hover:bg-[#151822] hover:transition-colors"
-          href="/"
+          className="flex items-center gap-2 rounded px-2 py-1 text-sm font-bold leading-base text-purple-100 transition hover:bg-[#151822]"
+          href="/explore"
         >
           Ver todos
           <ChevronRight className="h-4 w-4 fill-current text-purple-100" />
@@ -49,8 +49,13 @@ export async function PopularBooks() {
       </header>
 
       <div className="mt-2 flex flex-col gap-3">
-        {popularBooksList.map((book, index) => (
-          <BookCard size="base" book={book} key={index} />
+        {popularBooksList.map((book) => (
+          <Link
+            key={book.id}
+            href={`http://localhost:3000/explore/book/${book.id}`}
+          >
+            <BookCard size="base" book={book} />
+          </Link>
         ))}
       </div>
     </div>

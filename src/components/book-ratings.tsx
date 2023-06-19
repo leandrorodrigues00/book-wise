@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import { RatingConfig } from "@/types";
 import { RatingStars } from "@/components/rating-stars";
@@ -18,6 +19,7 @@ export function BookRatings({ ratings }: BookRatingsProps) {
             user={{
               name: ratings.user.name,
               image: ratings.user.image,
+              id: ratings.user.id,
             }}
           />
 
@@ -30,14 +32,16 @@ export function BookRatings({ ratings }: BookRatingsProps) {
         <RatingStars rating={ratings.rate} />
       </header>
 
-      <div className="mt-8 flex  gap-5">
-        <Image
-          className="h-full max-h-[152px]"
-          src={ratings.book.cover_url}
-          width={108}
-          height={152}
-          alt="Foto da capa do livro 'O Hobbit' de J.R.R TOLKIEN"
-        />
+      <div className="mt-8 flex gap-5">
+        <Link href={`http://localhost:3000/explore/book/${ratings.book_id}`}>
+          <Image
+            className="h-full max-h-[152px] min-w-[108px]"
+            src={ratings.book.cover_url}
+            width={108}
+            height={152}
+            alt={`Cover photo of the book: ${ratings.book.name}`}
+          />
+        </Link>
 
         <div>
           <div className="mb-5">
