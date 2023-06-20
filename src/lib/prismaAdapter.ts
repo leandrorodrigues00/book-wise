@@ -1,6 +1,7 @@
 // Learn more about it in the docs: https://github.com/nextauthjs/next-auth/blob/main/packages/adapter-prisma/src/index.ts
 // Typescript errors are expected in this adapter at the present date: @see https://github.com/nextauthjs/next-auth/issues/7727
 
+// @ts-nocheck
 import type { Adapter, AdapterAccount } from "@auth/core/adapters";
 import type { Prisma, PrismaClient } from "@prisma/client";
 

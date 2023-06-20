@@ -50,10 +50,7 @@ export async function PopularBooks() {
 
       <div className="mt-2 flex flex-col gap-3">
         {popularBooksList.map((book) => (
-          <Link
-            key={book.id}
-            href={`http://localhost:3000/explore/book/${book.id}`}
-          >
+          <Link key={book.id} href={`explore/book/${book.id}`} prefetch={false}>
             <BookCard size="base" book={book} />
           </Link>
         ))}

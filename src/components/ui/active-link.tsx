@@ -15,7 +15,9 @@ export function ActiveLink({ href, children, ...rest }: ActiveLinkProps) {
 
   const isCurrentPath =
     pathname === href ||
-    (pathname.startsWith("/profile") && href.toString().startsWith("/profile"));
+    (pathname.startsWith("/profile") &&
+      href.toString().startsWith("/profile")) ||
+    (pathname.startsWith("/explore") && href.toString().startsWith("/explore"));
 
   return (
     <Link

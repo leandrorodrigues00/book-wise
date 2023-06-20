@@ -27,7 +27,6 @@ export default function Layout({
       >
         {children}
       </Suspense>
-
       {ratingsModal}
       {loginModal}
     </>

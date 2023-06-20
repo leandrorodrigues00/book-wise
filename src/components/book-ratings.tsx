@@ -33,7 +33,7 @@ export function BookRatings({ ratings }: BookRatingsProps) {
       </header>
 
       <div className="mt-8 flex gap-5">
-        <Link href={`http://localhost:3000/explore/book/${ratings.book_id}`}>
+        <Link href={`explore/book/${ratings.book.id}`} prefetch={false}>
           <Image
             className="h-full max-h-[152px] min-w-[108px]"
             src={ratings.book.cover_url}

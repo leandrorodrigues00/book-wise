@@ -36,7 +36,7 @@ export async function fetchBookDetails(search: string) {
 
 export default async function BookModal({ params }: BookModalProps) {
   const selectedBook = await fetchBookDetails(params.id);
-  //https://github.com/vercel/next.js/issues/49243
+  //https://github.com/vercel/next.js/discussions/50107#discussioncomment-5965956
   if (!selectedBook) throw new Error("The book details could not be loaded");
 
   return (

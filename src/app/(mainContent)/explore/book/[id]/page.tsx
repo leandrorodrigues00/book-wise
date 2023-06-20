@@ -1,4 +1,5 @@
 import { BookDetailsCard } from "@/components/book-details-card";
+import { BookRatingsCard } from "@/components/book-ratings-card";
 
 import { fetchBookDetails } from "../../@ratingsModal/(...)explore/book/[id]/page";
 
@@ -16,6 +17,7 @@ export default async function BookPage({ params }: BookPageProps) {
   return (
     <div className="mx-auto my-10 w-[660px] ">
       <BookDetailsCard selectedBook={selectedBook} />
+      <BookRatingsCard bookRatings={selectedBook.ratings} />
     </div>
   );
 }

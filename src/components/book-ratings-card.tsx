@@ -36,7 +36,7 @@ export function BookRatingsCard({ bookRatings }: BookRatingsCardProps) {
         ) : (
           <Link
             className="rounded px-3 py-1 font-bold leading-base text-purple-100 hover:bg-[#151822] hover:transition-colors"
-            href="explore/login"
+            href="http://localhost:3000/explore/login"
           >
             Avaliar
           </Link>
@@ -51,6 +51,7 @@ export function BookRatingsCard({ bookRatings }: BookRatingsCardProps) {
               name: session.user.name,
               email: session.user.email,
               image: session.user.image,
+              id: session.user.id,
             }}
           />
         )}

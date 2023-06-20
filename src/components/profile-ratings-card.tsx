@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import { ProfileRatingConfig } from "@/types";
 import { getRelativeTimeString } from "@/utils/get-relative-time-string";
@@ -21,13 +22,17 @@ export default function ProfileRatingsCard({
 
       <div className="mt-2 rounded-lg bg-gray-700 p-6">
         <header className="flex gap-5">
-          <Image
-            src={rating.book.cover_url}
-            width={98}
-            height={134}
-            alt={`Cover of the book ${rating.book.name}`}
-          />
-
+          <Link
+            href={`http://localhost:3000/explore/book/${rating.book.id}`}
+            prefetch={false}
+          >
+            <Image
+              src={rating.book.cover_url}
+              width={98}
+              height={134}
+              alt={`Cover of the book ${rating.book.name}`}
+            />
+          </Link>
           <div className="flex flex-col justify-between">
             <div>
               <h2 className="font-bold leading-short">{rating.book.name}</h2>
