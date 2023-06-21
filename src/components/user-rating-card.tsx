@@ -1,5 +1,5 @@
 import { RatingWithAuthorConfig } from "@/types";
-import { getRelativeTimeString } from "@/utils/get-relative-time-string";
+import { dayjs } from "@/lib/dayjs";
 import { RatingStars } from "@/components/rating-stars";
 import { UserAvatar } from "@/components/user-avatar";
 
@@ -8,11 +8,6 @@ interface UserRatingCardProps {
 }
 
 export function UserRatingCard({ rating }: UserRatingCardProps) {
-  const timeString = getRelativeTimeString(
-    new Date(rating.created_at),
-    "en-US"
-  );
-
   return (
     <div className="rounded-lg bg-gray-700 p-6">
       <header className="mb-5 flex justify-between">
@@ -27,7 +22,9 @@ export function UserRatingCard({ rating }: UserRatingCardProps) {
 
           <div>
             <p className="leading-base">{rating.user.name}</p>
-            <span className="text-sm text-gray-400">{timeString}</span>
+            <span className="text-sm text-gray-400">
+              {dayjs(rating.created_at).fromNow()}
+            </span>
           </div>
         </div>
 

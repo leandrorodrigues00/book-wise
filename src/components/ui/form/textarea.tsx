@@ -18,7 +18,12 @@ export function Textarea({ className, maxLength, ...props }: TextareaProps) {
         className="flex-1 resize-none border-none bg-transparent px-5 py-[14px] outline-none placeholder:text-gray-400"
       />
       {maxLength && (
-        <span className="ml-auto pb-1 pr-2 text-xs leading-base text-gray-400">
+        <span
+          className={cn(
+            "ml-auto pb-1 pr-2 text-xs leading-base",
+            valueLength > 450 ? "text-red-300" : "text-gray-400"
+          )}
+        >
           {valueLength}/{maxLength}
         </span>
       )}

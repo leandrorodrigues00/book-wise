@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { RatingConfig } from "@/types";
+import { dayjs } from "@/lib/dayjs";
 import { RatingStars } from "@/components/rating-stars";
 import { ShowMoreButton } from "@/components/show-more-button";
 import { UserAvatar } from "@/components/user-avatar";
@@ -25,7 +26,9 @@ export function BookRatings({ ratings }: BookRatingsProps) {
 
           <div>
             <p className="leading-base">{ratings.user.name}</p>
-            <span className="text-sm text-gray-400">Hoje</span>
+            <span className="text-sm text-gray-400">
+              {dayjs(ratings.created_at).fromNow()}
+            </span>
           </div>
         </div>
 

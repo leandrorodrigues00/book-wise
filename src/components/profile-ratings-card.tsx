@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { ProfileRatingConfig } from "@/types";
-import { getRelativeTimeString } from "@/utils/get-relative-time-string";
+import { dayjs } from "@/lib/dayjs";
 import { RatingStars } from "@/components/rating-stars";
 
 interface ProfileRatingsCardProps {
@@ -12,13 +12,11 @@ interface ProfileRatingsCardProps {
 export default function ProfileRatingsCard({
   rating,
 }: ProfileRatingsCardProps) {
-  const timeString = getRelativeTimeString(
-    new Date(rating.created_at),
-    "en-US"
-  );
   return (
     <div className="mb-6">
-      <span className="text-sm leading-base text-gray-300">{timeString}</span>
+      <span className="text-sm leading-base text-gray-300">
+        {dayjs(rating.created_at).fromNow()}
+      </span>
 
       <div className="mt-2 rounded-lg bg-gray-700 p-6">
         <header className="flex gap-5">

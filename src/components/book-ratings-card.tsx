@@ -11,9 +11,10 @@ import { UserRatingCard } from "@/components/user-rating-card";
 
 interface BookRatingsCardProps {
   bookRatings: Array<RatingWithAuthorConfig>;
+  bookId: string;
 }
 
-export function BookRatingsCard({ bookRatings }: BookRatingsCardProps) {
+export function BookRatingsCard({ bookRatings, bookId }: BookRatingsCardProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const { data: session, status } = useSession();
@@ -53,6 +54,7 @@ export function BookRatingsCard({ bookRatings }: BookRatingsCardProps) {
               image: session.user.image,
               id: session.user.id,
             }}
+            bookId={bookId}
           />
         )}
 

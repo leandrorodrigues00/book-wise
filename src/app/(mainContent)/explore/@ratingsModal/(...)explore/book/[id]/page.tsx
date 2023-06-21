@@ -43,7 +43,7 @@ export default async function BookModal({ params }: BookModalProps) {
     <RatingsDialog>
       <BookDetailsCard selectedBook={selectedBook} />
 
-      <BookRatingsCard bookRatings={selectedBook.ratings} />
+      <BookRatingsCard bookId={params.id} bookRatings={selectedBook.ratings} />
     </RatingsDialog>
   );
 }

@@ -17,7 +17,7 @@ export default async function BookPage({ params }: BookPageProps) {
   return (
     <div className="mx-auto my-10 w-[660px] ">
       <BookDetailsCard selectedBook={selectedBook} />
-      <BookRatingsCard bookRatings={selectedBook.ratings} />
+      <BookRatingsCard bookId={params.id} bookRatings={selectedBook.ratings} />
     </div>
   );
 }
