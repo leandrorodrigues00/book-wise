@@ -1,5 +1,7 @@
+import { NextRequest, NextResponse } from "next/server";
+
 import prisma from "@/lib/prisma";
-import { NextResponse, NextRequest } from "next/server";
+import { getCurrentUser } from "@/lib/session";
 
 export async function GET(request: NextRequest) {
   const categoryId = request.nextUrl.searchParams.get("categoryId");
@@ -47,6 +49,23 @@ export async function GET(request: NextRequest) {
     },
   });
 
+  let userBooksIds: string[] = [];
+  const user = await getCurrentUser();
+
+  if (user) {
+    const userBooks = await prisma.book.findMany({
+      where: {
+        ratings: {
+          some: {
+            userId: String(user.id),
+          },
+        },
+      },
+    });
+
+    userBooksIds = userBooks?.map((x) => x?.id);
+  }
+
   const booksWithAvgRating = books.map((book) => {
     const bookAvgRating = booksAvgRating.find(
       (avgRating) => avgRating.book_id === book.id
@@ -57,6 +76,7 @@ export async function GET(request: NextRequest) {
     return {
       ...bookInfo,
       avgRating: bookAvgRating?._avg.rate,
+      alreadyRead: userBooksIds.includes(book.id),
     };
   });
 

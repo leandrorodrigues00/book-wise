@@ -6,9 +6,7 @@ async function fetchLatestRatings() {
   const url = "http://localhost:3000/api/ratings/latest";
   try {
     const response = await fetch(url, {
-      next: {
-        revalidate: 60 * 10, // 10 minutes
-      },
+      cache: "no-store",
     });
 
     if (response.ok) {
