@@ -1,6 +1,10 @@
 import { RatingConfig } from "@/types";
+import { getLatestUserRating } from "@/lib/prisma";
+import { getCurrentUser } from "@/lib/session";
 import { BookRatings } from "@/components/book-ratings";
 import { TrendingUp } from "@/components/icons";
+
+import { UserLastReadCard } from "./user-last-read-card";
 
 async function fetchLatestRatings() {
   const url = "http://localhost:3000/api/ratings/latest";
@@ -37,6 +41,9 @@ export async function TrendingBooks() {
         <TrendingUp className="h-[32px] w-[32px] fill-current text-green-100" />
         Inicio
       </h1>
+
+      {/* @ts-expect-error Server Component */}
+      <UserLastReadCard />
 
       <div className="mt-10">
         <p className="mb-4 text-sm leading-base">Avaliações mais recentes</p>

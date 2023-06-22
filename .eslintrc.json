@@ -1,6 +1,5 @@
 {
   "extends": ["next/core-web-vitals"],
-  "plugins": ["tailwindcss"],
   "rules": {
     "@next/next/no-img-element": "off"
   }
