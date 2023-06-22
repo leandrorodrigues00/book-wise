@@ -1,6 +1,6 @@
 import { TextareaHTMLAttributes } from "react";
 
-import { cn } from "@/utils/tailwind-classnames";
+import { cn } from "@/lib/utils";
 
 interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   name: string;

@@ -3,7 +3,7 @@
 import * as React from "react";
 import * as AvatarPrimitive from "@radix-ui/react-avatar";
 
-import { cn } from "@/utils/tailwind-classnames";
+import { cn } from "@/lib/utils";
 
 type RootElement = React.ElementRef<typeof AvatarPrimitive.Root>;
 type RootProps = React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Root>;

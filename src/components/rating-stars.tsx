@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import { cn } from "@/utils/tailwind-classnames";
+import { cn } from "@/lib/utils";
 import { Star } from "@/components/icons";
 
 interface RatingStarsProps {

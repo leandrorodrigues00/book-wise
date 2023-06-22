@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 
 import { BookWithCategoryConfig, CategoryConfig } from "@/types";
-import { cn } from "@/utils/tailwind-classnames";
+import { cn } from "@/lib/utils";
 import { Form } from "@/components/ui/form";
 import { BookCard } from "@/components/book-card";
 import { Binoculars, MagnifyingGlass } from "@/components/icons";

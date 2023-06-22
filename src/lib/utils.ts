@@ -1,3 +1,11 @@
+import { twMerge } from "tailwind-merge";
+
+import { ClassValue, clsx } from "clsx";
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+
 // Learn more about it in the docs: https://plainenglish.io/blog/how-to-find-the-most-frequent-element-in-an-array-in-javascript-c85119dc78d2
 
 export const getMostFrequentString = (arr: string[]) => {

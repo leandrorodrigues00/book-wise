@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 
 import prisma from "@/lib/prisma";
-import { getMostFrequentString } from "@/utils/get-most-frequent-string";
+import { getMostFrequentString } from "@/lib/utils";
 
 export async function GET(
   request: Request,

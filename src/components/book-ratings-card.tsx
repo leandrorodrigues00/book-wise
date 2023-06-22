@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useSession } from "next-auth/react";
 
 import { RatingWithAuthorConfig } from "@/types";
-import { cn } from "@/utils/tailwind-classnames";
+import { cn } from "@/lib/utils";
 import { RatingForm } from "@/components/rating-form";
 import { UserRatingCard } from "@/components/user-rating-card";
 
