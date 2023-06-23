@@ -23,7 +23,7 @@ export interface RatingConfig {
 
 export interface BookWithRatingConfig extends BookConfig {
   avgRating: number;
-  alreadyRead: boolean;
+  alreadyRead?: boolean;
 }
 
 export interface CategoryConfig {

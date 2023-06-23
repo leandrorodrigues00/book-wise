@@ -13,7 +13,7 @@ export default function Layout({
 }: LayoutProps) {
   return (
     <>
-      {/*Temporary fix, because parallel routes are breaking loading.tsx
+      {/*Temporary fix, parallel routes are breaking loading.tsx
        @see https://github.com/vercel/next.js/issues/49243
      */}
       <Suspense
