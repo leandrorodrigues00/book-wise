@@ -1,37 +1,10 @@
-import { RatingConfig } from "@/types";
-import { getLatestUserRating } from "@/lib/prisma";
-import { getCurrentUser } from "@/lib/session";
+import { getLatestRatings } from "@/lib/prisma";
 import { BookRatings } from "@/components/book-ratings";
 import { TrendingUp } from "@/components/icons";
-
-import { UserLastReadCard } from "./user-last-read-card";
-
-async function fetchLatestRatings() {
-  const url = "http://localhost:3000/api/ratings/latest";
-  try {
-    const response = await fetch(url, {
-      cache: "no-store",
-    });
-
-    if (response.ok) {
-      const json: RatingConfig[] = await response.json();
-      return json;
-    } else {
-      throw new Error(
-        `Error fetching data from URL ${url}. Response status: ${response.status}`
-      );
-    }
-  } catch (error) {
-    if (error instanceof Error)
-      console.error(
-        `Error fetching data from URL ${url}. Message: ${error.message}`
-      );
-    return null;
-  }
-}
+import { UserLastReadCard } from "@/components/user-last-read-card";
 
 export async function TrendingBooks() {
-  const latestRatings = await fetchLatestRatings();
+  const latestRatings = await getLatestRatings();
   if (!latestRatings)
     throw new Error("The latest classifications could not be loaded");
 

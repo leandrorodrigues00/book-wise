@@ -7,14 +7,14 @@ export interface BookConfig {
   summary: string;
   cover_url: string;
   total_pages: number;
-  created_at: string;
+  created_at: Date;
 }
 
 export interface RatingConfig {
   id: string;
   rate: number;
   description: string;
-  created_at: string;
+  created_at: Date;
   book_id: string;
   userId: string;
   book: BookConfig;
@@ -23,6 +23,7 @@ export interface RatingConfig {
 
 export interface BookWithRatingConfig extends BookConfig {
   avgRating: number;
+  alreadyRead: boolean;
 }
 
 export interface CategoryConfig {
@@ -54,9 +55,9 @@ export interface UserProfileConfig {
   readPages: number;
   ratedBooks: number;
   readAuthors: number;
-  mostReadCategory?: string;
+  mostReadCategory: string | null;
   user: Pick<User, "name" | "image" | "id"> & {
-    member_since: string;
+    member_since: Date;
   };
   ratings: Array<ProfileRatingConfig>;
 }

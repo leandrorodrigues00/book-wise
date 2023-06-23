@@ -1,37 +1,12 @@
 import Link from "next/link";
 
-import { BookWithRatingConfig } from "@/types";
+import { getPopularBooks } from "@/lib/prisma";
 import { BookCard } from "@/components/book-card";
 import { ChevronRight } from "@/components/icons";
 
-async function fetchPopularBooks() {
-  const url = "http://localhost:3000/api/books/popular";
-  try {
-    const response = await fetch(url, {
-      next: {
-        revalidate: 60 * 60 * 24, // 24 hours
-      },
-    });
-
-    if (response.ok) {
-      const json: BookWithRatingConfig[] = await response.json();
-      return json;
-    } else {
-      throw new Error(
-        `Error fetching data from URL ${url}. Response status: ${response.status}`
-      );
-    }
-  } catch (error) {
-    if (error instanceof Error)
-      console.error(
-        `Error fetching data from URL ${url}. Message: ${error.message}`
-      );
-    return null;
-  }
-}
-
 export async function PopularBooks() {
-  const popularBooksList = await fetchPopularBooks();
+  const popularBooksList = await getPopularBooks();
+
   if (!popularBooksList)
     throw new Error("The popular book list could not be loaded");
 

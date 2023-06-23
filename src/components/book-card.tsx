@@ -19,6 +19,7 @@ export function BookCard({ size = "base", book }: BookCardProps) {
       height: 152,
     },
   };
+
   return (
     <div className="flex w-full gap-5 rounded-lg border border-gray-700 bg-gray-700 px-5 py-[1.125rem] transition hover:cursor-pointer hover:border-gray-600">
       <Image

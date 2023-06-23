@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { UserProfileConfig } from "@/types";
+import { getProfileDetails } from "@/lib/prisma";
 import { getCurrentUser } from "@/lib/session";
 import { ChevronLeft, Profile } from "@/components/icons";
 import ProfileDetails from "@/components/profile-details";
@@ -12,36 +12,8 @@ interface ProfilePageProps {
   };
 }
 
-interface ProfileApiResponse {
-  profile: UserProfileConfig;
-}
-
-async function fetchProfileDetails(id: string) {
-  const url = `http://localhost:3000/api/profile/${id}`;
-  try {
-    const response = await fetch(url, {
-      cache: "no-cache",
-    });
-
-    if (response.ok) {
-      const json: ProfileApiResponse = await response.json();
-      return json.profile;
-    } else {
-      throw new Error(
-        `Error fetching data from URL ${url}. Response status: ${response.status}`
-      );
-    }
-  } catch (error) {
-    if (error instanceof Error)
-      console.error(
-        `Error fetching data from URL ${url}. Message: ${error.message}`
-      );
-    return null;
-  }
-}
-
 export default async function ProfilePage({ params }: ProfilePageProps) {
-  const profile = await fetchProfileDetails(params.id);
+  const profile = await getProfileDetails(params.id);
   if (!profile) throw new Error("This profile was not found");
 
   const user = await getCurrentUser();

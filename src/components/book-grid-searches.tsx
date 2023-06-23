@@ -8,16 +8,13 @@ import { cn } from "@/lib/utils";
 import { Form } from "@/components/ui/form";
 import { BookCard } from "@/components/book-card";
 import { Binoculars, MagnifyingGlass } from "@/components/icons";
+import { getBooksByCategory } from "@/app/actions";
 
 interface BookGridSearchesProps {
   bookCategories: CategoryConfig[];
-  getBooksByCategory: (search: string) => Promise<BookWithCategoryConfig[]>;
 }
 
-export function BookGridSearches({
-  bookCategories,
-  getBooksByCategory,
-}: BookGridSearchesProps) {
+export function BookGridSearches({ bookCategories }: BookGridSearchesProps) {
   const [isLoading, setIsLoading] = useState(true);
   const [bookList, setBookList] = useState<BookWithCategoryConfig[]>([]);
   const [searchString, setSearchString] = useState("");
@@ -32,7 +29,7 @@ export function BookGridSearches({
       setBookList(books);
       setIsLoading(false);
     });
-  }, [getBooksByCategory]);
+  }, []);
 
   const filteredBooks = bookList.filter((book) => {
     return (

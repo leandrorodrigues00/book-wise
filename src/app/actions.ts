@@ -3,7 +3,7 @@
 import { revalidatePath } from "next/cache";
 import * as z from "zod";
 
-import prisma from "@/lib/prisma";
+import prisma, { getBooks } from "@/lib/prisma";
 import { getCurrentUser } from "@/lib/session";
 
 type createUserRatingProps = {
@@ -61,4 +61,13 @@ export async function createUserRating({
   });
 
   revalidatePath("/explore/book/");
+}
+
+export async function getBooksByCategory(search: string) {
+  const user = await getCurrentUser();
+
+  const bookList = await getBooks(user?.id ?? null, search);
+  if (!bookList) throw new Error("Books could not be loaded");
+
+  return bookList;
 }

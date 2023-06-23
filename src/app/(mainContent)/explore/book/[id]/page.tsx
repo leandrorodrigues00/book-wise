@@ -1,7 +1,6 @@
+import { getBookDetails } from "@/lib/prisma";
 import { BookDetailsCard } from "@/components/book-details-card";
 import { BookRatingsCard } from "@/components/book-ratings-card";
-
-import { fetchBookDetails } from "../../@ratingsModal/(...)explore/book/[id]/page";
 
 interface BookPageProps {
   params: {
@@ -10,7 +9,7 @@ interface BookPageProps {
 }
 
 export default async function BookPage({ params }: BookPageProps) {
-  const selectedBook = await fetchBookDetails(params.id);
+  const selectedBook = await getBookDetails(params.id);
 
   if (!selectedBook) throw new Error("The book details could not be loaded");
 
