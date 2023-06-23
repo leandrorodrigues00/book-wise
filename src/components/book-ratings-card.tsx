@@ -37,7 +37,7 @@ export function BookRatingsCard({ bookRatings, bookId }: BookRatingsCardProps) {
         ) : (
           <Link
             className="rounded px-3 py-1 font-bold leading-base text-purple-100 hover:bg-[#151822] hover:transition-colors"
-            href="http://localhost:3000/explore/login"
+            href={`${process.env.NEXT_PUBLIC_URL}/explore/login`}
           >
             Avaliar
           </Link>

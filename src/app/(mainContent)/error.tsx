@@ -30,7 +30,7 @@ export default function Error({ error, reset }: ErrorProps) {
             href="https://github.com/leandrorodrigues00"
           >
             support
-          </a>{" "}
+          </a>
           if the problema persists.
         </p>
         <div className="mt-10 flex items-center justify-center gap-x-6">

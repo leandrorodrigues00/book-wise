@@ -21,7 +21,7 @@ export default function ProfileRatingsCard({
       <div className="mt-2 rounded-lg bg-gray-700 p-6">
         <header className="flex gap-5">
           <Link
-            href={`http://localhost:3000/explore/book/${rating.book.id}`}
+            href={`${process.env.NEXT_PUBLIC_URL}/explore/book/${rating.book.id}`}
             prefetch={false}
           >
             <Image

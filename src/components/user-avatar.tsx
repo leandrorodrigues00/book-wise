@@ -11,7 +11,7 @@ interface UserAvatarProps extends AvatarProps {
 
 export function UserAvatar({ user, ...props }: UserAvatarProps) {
   return (
-    <Link href={`http://localhost:3000/profile/${user.id}`}>
+    <Link href={`${process.env.NEXT_PUBLIC_URL}/profile/${user.id}`}>
       <Avatar {...props}>
         {user.image ? (
           <AvatarImage alt={`Profile photo of ${user.name}`} src={user.image} />
