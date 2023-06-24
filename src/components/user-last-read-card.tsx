@@ -17,13 +17,15 @@ export async function UserLastReadCard() {
   return (
     <div className="mt-10">
       <div className="flex items-center justify-between">
-        <p className="text-sm leading-base text-gray-100">Sua ultima leitura</p>
+        <p className="text-sm leading-base text-gray-100">
+          Your latest reading
+        </p>
 
         <Link
           className="flex items-center gap-2 rounded px-2 py-1 text-sm font-bold leading-base text-purple-100 transition hover:bg-[#151822]"
           href={`/profile/${rating.userId}`}
         >
-          Ver todos
+          View all
           <ChevronRight className="h-4 w-4 fill-current text-purple-100" />
         </Link>
       </div>
