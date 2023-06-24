@@ -40,7 +40,9 @@ export function BookGridSearches({ bookCategories }: BookGridSearchesProps) {
 
   async function handleChangeCategory(categoryId: string) {
     setSelectedCategory(categoryId);
+    setIsLoading(true);
     setBookList(await getBooksByCategory(categoryId));
+    setIsLoading(false);
   }
 
   return (
