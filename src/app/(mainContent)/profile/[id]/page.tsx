@@ -20,7 +20,7 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
   const ownProfile = user?.id == profile.user.id;
 
   return (
-    <section className="mx-auto mt-[42px] flex w-full max-w-[996px] flex-col items-start gap-16 overflow-hidden sm:flex-row sm:items-center">
+    <section className="mx-auto mt-[42px] flex w-full max-w-[996px] gap-16 overflow-hidden">
       <div className="no-scrollbar max-h-[calc(100vh-42px)] w-full max-w-[608px]  overflow-y-auto">
         <div>
           {ownProfile ? (

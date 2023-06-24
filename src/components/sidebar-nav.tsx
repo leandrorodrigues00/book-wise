@@ -31,7 +31,7 @@ export async function Sidebar() {
             <li>
               <ActiveLink href={`/profile/${user.id}`}>
                 <Profile className="h-6 w-6 fill-current" />
-                Your Profile
+                Profile
               </ActiveLink>
             </li>
           )}
