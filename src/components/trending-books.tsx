@@ -12,14 +12,14 @@ export async function TrendingBooks() {
     <div className="no-scrollbar h-full w-full max-w-[608px] overflow-y-auto pb-10">
       <h1 className="flex gap-3 text-2xl font-bold leading-short">
         <TrendingUp className="h-[32px] w-[32px] fill-current text-green-100" />
-        Inicio
+        Home
       </h1>
 
       {/* @ts-expect-error Server Component */}
       <UserLastReadCard />
 
       <div className="mt-10">
-        <p className="mb-4 text-sm leading-base">Avaliações mais recentes</p>
+        <p className="mb-4 text-sm leading-base">Latest Reviews</p>
 
         <div className="flex flex-col gap-3">
           {latestRatings.map((ratings) => (

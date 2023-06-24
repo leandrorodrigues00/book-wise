@@ -13,7 +13,7 @@ export function AuthButtons() {
       >
         <Google className="h-8 w-8" />
         <span className="text-lg font-bold leading-base">
-          Entrar com Google
+          Sign in with Google
         </span>
       </button>
       <button
@@ -22,7 +22,7 @@ export function AuthButtons() {
       >
         <Github className="h-8 w-8 fill-current text-white" />
         <span className="text-lg font-bold leading-base">
-          Entrar com GitHub
+          Sign in with GitHub
         </span>
       </button>
     </>

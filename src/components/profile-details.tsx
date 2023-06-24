@@ -22,7 +22,7 @@ export default function ProfileDetails({ profile }: ProfileDetailsProps) {
         />
         <p className="mt-5 text-xl  font-bold">{profile.user.name}</p>
         <span className="text-sm leading-base text-gray-400">
-          membro desde {memberSinceYear}
+          member since {memberSinceYear}
         </span>
       </header>
 
@@ -31,7 +31,7 @@ export default function ProfileDetails({ profile }: ProfileDetailsProps) {
           <Book className="h-8 w-8 fill-current text-green-100" />
           <div>
             <span className="font-bold leading-short">{profile.readPages}</span>
-            <p className="text-sm leading-base text-gray-300">Páginas lidas</p>
+            <p className="text-sm leading-base text-gray-300">Read pages</p>
           </div>
         </div>
 
@@ -41,9 +41,7 @@ export default function ProfileDetails({ profile }: ProfileDetailsProps) {
             <span className="font-bold leading-short">
               {profile.ratedBooks}
             </span>
-            <p className="text-sm leading-base text-gray-300">
-              Livros avaliados
-            </p>
+            <p className="text-sm leading-base text-gray-300">Rated books</p>
           </div>
         </div>
 
@@ -53,7 +51,7 @@ export default function ProfileDetails({ profile }: ProfileDetailsProps) {
             <span className="font-bold leading-short">
               {profile.readAuthors}
             </span>
-            <p className="text-sm leading-base text-gray-300">Autores lidos</p>
+            <p className="text-sm leading-base text-gray-300">Read authors</p>
           </div>
         </div>
 
@@ -61,10 +59,10 @@ export default function ProfileDetails({ profile }: ProfileDetailsProps) {
           <BookmarkSimple className="h-8 w-8 fill-current text-green-100" />
           <div>
             <span className="font-bold leading-short">
-              {profile.mostReadCategory || "Nenhuma categoria"}
+              {profile.mostReadCategory || "No category"}
             </span>
             <p className="text-sm leading-base text-gray-300">
-              Categoria mais lida
+              Most read category
             </p>
           </div>
         </div>

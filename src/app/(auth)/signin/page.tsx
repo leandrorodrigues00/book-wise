@@ -14,11 +14,9 @@ export default async function Signin() {
         <div className="w-full max-w-[372px]">
           <div className="mb-10 flex flex-col gap-[2px]">
             <p className="text-2xl font-bold leading-short text-gray-100">
-              Boas vindas!
+              Welcome!
             </p>
-            <p className="leading-base">
-              Faça seu login ou acesse como visitante.
-            </p>
+            <p className="leading-base">Please log in or access as a guest.</p>
           </div>
 
           <div className="flex flex-col gap-4">
@@ -30,7 +28,7 @@ export default async function Signin() {
             >
               <RocketLauch className="h-8 w-8 fill-current text-purple-100" />
               <span className="text-lg font-bold leading-base">
-                Acessar como visitante
+                Login as a guest
               </span>
             </Link>
           </div>

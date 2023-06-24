@@ -20,7 +20,7 @@ export function ShowMoreButton({ text }: ShowMoreButtonProps) {
         onClick={() => setShowMore(!showMore)}
         className="ml-1 text-sm font-bold leading-base text-purple-100"
       >
-        {showMore ? "ver menos" : "ver mais"}
+        {showMore ? "see less" : "see more"}
       </button>
     </p>
   );

@@ -33,7 +33,7 @@ export function BookDetailsCard({ selectedBook }: BookDetailsCardProps) {
             <RatingStars rating={selectedBook.avgRating} />
             <span className="text-sm text-gray-400">
               {totalRatings}
-              {totalRatings > 1 ? " Avaliações" : " Avaliação"}
+              {totalRatings > 1 ? " Reviews" : " Review"}
             </span>
           </div>
         </div>
@@ -43,9 +43,7 @@ export function BookDetailsCard({ selectedBook }: BookDetailsCardProps) {
         <div className="flex items-center gap-4">
           <BookmarkSimple className="h-6 w-6 fill-current text-green-100" />
           <div>
-            <span className="text-sm leading-base text-gray-300">
-              Categoria
-            </span>
+            <span className="text-sm leading-base text-gray-300">Category</span>
             <p>
               {selectedBook.categories.map((category, index) => (
                 <>
@@ -60,7 +58,7 @@ export function BookDetailsCard({ selectedBook }: BookDetailsCardProps) {
         <div className="flex items-center gap-4">
           <Book className="h-7 w-7 fill-current text-green-100" />
           <div>
-            <span className="text-sm leading-base text-gray-300">Páginas</span>
+            <span className="text-sm leading-base text-gray-300">Pages</span>
             <p className="leading-short">{selectedBook.total_pages}</p>
           </div>
         </div>

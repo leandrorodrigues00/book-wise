@@ -23,7 +23,7 @@ export function BookRatingsCard({ bookRatings, bookId }: BookRatingsCardProps) {
   return (
     <div>
       <header className="mb-4 flex justify-between">
-        <span className="text-sm leading-base">Avaliações</span>
+        <span className="text-sm leading-base">Reviews</span>
         {isAuthenticated ? (
           <button
             onClick={() => setIsOpen(!isOpen)}
@@ -32,14 +32,14 @@ export function BookRatingsCard({ bookRatings, bookId }: BookRatingsCardProps) {
               isOpen && "invisible"
             )}
           >
-            Avaliar
+            Rate
           </button>
         ) : (
           <Link
             className="rounded px-3 py-1 font-bold leading-base text-purple-100 hover:bg-[#151822] hover:transition-colors"
             href={`${process.env.NEXT_PUBLIC_URL}/explore/login`}
           >
-            Avaliar
+            Rate
           </Link>
         )}
       </header>

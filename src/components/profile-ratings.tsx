@@ -24,7 +24,7 @@ export function ProfileRatings({ profile }: ProfileRatingsProps) {
     <>
       <Form.Input
         name="profileBook"
-        placeholder="Buscar livro avaliado"
+        placeholder="Search Rated Book"
         icon={
           <MagnifyingGlass className="h-5 w-5 fill-current text-gray-500 group-focus-within:text-green-200" />
         }
@@ -40,9 +40,7 @@ export function ProfileRatings({ profile }: ProfileRatingsProps) {
           ))
         ) : (
           <p className="font-bold leading-short text-gray-400">
-            {search
-              ? "Nenhum resultado encontrado"
-              : "Nenhuma avaliação encontrada"}
+            {search ? "No results found" : "No reviews found"}
           </p>
         )}
       </div>

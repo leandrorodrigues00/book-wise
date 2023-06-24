@@ -10,7 +10,7 @@ export async function Sidebar() {
   const user = await getCurrentUser();
 
   return (
-    <aside className="flex h-[calc(100vh-40px)] w-full max-w-[232px] flex-col items-center rounded-xl bg-sidebar">
+    <aside className="hidden h-[calc(100vh-40px)] w-full max-w-[232px] flex-col items-center rounded-xl bg-sidebar xl:flex ">
       <img className="w-32 pt-10" src="/logo.svg" alt="BookWise logo" />
 
       <nav className="mt-16">
@@ -18,20 +18,20 @@ export async function Sidebar() {
           <li>
             <ActiveLink href="/">
               <TrendingUp className="h-6 w-6 fill-current" />
-              Início
+              Home
             </ActiveLink>
           </li>
           <li>
             <ActiveLink href="/explore">
               <Binoculars className="h-6 w-6 fill-current" />
-              Explorar
+              Explore
             </ActiveLink>
           </li>
           {user && (
             <li>
               <ActiveLink href={`/profile/${user.id}`}>
                 <Profile className="h-6 w-6 fill-current" />
-                Perfil
+                Your Profile
               </ActiveLink>
             </li>
           )}
@@ -58,7 +58,7 @@ export async function Sidebar() {
             href="/signin"
             className="flex items-center gap-3 font-bold leading-base"
           >
-            Fazer login
+            Sign in
             <SignIn className="h-5 w-5 fill-current text-green-100" />
           </Link>
         )}

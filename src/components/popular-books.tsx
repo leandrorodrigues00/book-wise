@@ -11,14 +11,14 @@ export async function PopularBooks() {
     throw new Error("The popular book list could not be loaded");
 
   return (
-    <div className="mt-[4.75rem] w-full max-w-[20.25rem]">
+    <div className="mt-[4.75rem] hidden w-full max-w-[20.25rem] sm:block">
       <header className="flex items-center justify-between">
-        <p className="text-sm leading-base">Livros populares</p>
+        <p className="text-sm leading-base">Popular Books</p>
         <Link
           className="flex items-center gap-2 rounded px-2 py-1 text-sm font-bold leading-base text-purple-100 transition hover:bg-[#151822]"
           href="/explore"
         >
-          Ver todos
+          view all
           <ChevronRight className="h-4 w-4 fill-current text-purple-100" />
         </Link>
       </header>

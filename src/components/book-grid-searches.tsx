@@ -49,13 +49,13 @@ export function BookGridSearches({ bookCategories }: BookGridSearchesProps) {
         <header className="mb-10 flex items-center justify-between">
           <p className="flex gap-3 text-2xl font-bold leading-short">
             <Binoculars className="h-[32px] w-[32px] fill-current text-green-100" />
-            Explorar
+            Explore
           </p>
 
           {/* Book Input */}
           <Form.Input
             name="livro"
-            placeholder="Buscar Livro ou autor"
+            placeholder="Search Book or Author"
             type="text"
             value={searchString}
             onChange={(e) => setSearchString(e.target.value)}
@@ -77,7 +77,7 @@ export function BookGridSearches({ bookCategories }: BookGridSearchesProps) {
                 : "border-purple-100 text-purple-100 transition hover:border-gray-300 hover:text-gray-300"
             )}
           >
-            Tudo
+            All
           </button>
           {bookCategories.map((category) => (
             <button
@@ -97,14 +97,14 @@ export function BookGridSearches({ bookCategories }: BookGridSearchesProps) {
       </div>
 
       {/* Books Grid  */}
-      <div className="no-scrollbar grid max-h-[690px]  grid-cols-3 gap-5 overflow-y-auto pb-10">
+      <div className="no-scrollbar grid max-h-[690px] grid-cols-1 gap-5 overflow-y-auto   pb-10 sm:grid-cols-2 lg:grid-cols-3">
         {isLoading ? (
           <p className="font-bold leading-short text-gray-400">
-            Carregando livros...
+            Loading books...
           </p>
         ) : filteredBooks.length === 0 ? (
           <p className="font-bold leading-short text-gray-400">
-            Nenhum livro encontrado.
+            No books found.
           </p>
         ) : (
           filteredBooks.map((book) => (
