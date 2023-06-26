@@ -34,7 +34,7 @@ You can view the project layout through the links below:
 ## 🚀 Technologies
 
 - [DayJs](https://day.js.org/)
-- [Next-auth](https://next-auth.js.org/) (Sign in with Google or Github account)
+- [Next-auth](https://next-auth.js.org/) (login via Google or GitHub accounts)
 - [NextJs](https://nextjs.org/)(AppDir)
 - [Postgresql](https://www.postgresql.org/)
 - [Prisma](https://www.prisma.io/)
