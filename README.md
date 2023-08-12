@@ -21,7 +21,7 @@ BookWise is an innovative website that provides an interactive platform for book
 
 [click here, see closer](https://book-wise-cs.vercel.app/explore) 😉
 
-**Note:** The application database is running on Railway, where the free plan has a monthly usage limit.
+**Note:** The application database is running on [render](https://render.com/), where the free plan has a monthly usage limit.
 
 ## 🔖 Layout
 
