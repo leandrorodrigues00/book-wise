@@ -10,16 +10,10 @@ interface ErrorProps {
 
 export default function Error({ error, reset }: ErrorProps) {
   useEffect(() => {
+    // Log the error to an error reporting service
     console.error(error);
   }, [error]);
-
-  if (
-    error.message.includes("Invalid `prisma.") ||
-    error.message.includes("An error occurred in the Server Components render")
-  ) {
-    error.message =
-      "database unavailable -- The application database is running on Railway, where the free plan has a monthly usage limit.";
-  }
+ 
   return (
     <div className="grid min-h-full w-full place-items-center   ">
       <div className="text-center">
